@@ -150,6 +150,7 @@ function frame:OnEvent(event, arg1, ...)
             Module.InspectHooked = true
 
             DragonflightUIMixin:ChangeInspectFrame()
+            DragonflightUIMixin:EnhanceInspectFrame()
 
             if InspectFrame and not InspectFrame.DFTacoTipHooked then
                 --
@@ -320,6 +321,7 @@ function Module:ApplySettings()
             Module:HookCharacterLevel()
         elseif DF.Wrath then
             DragonflightUIMixin:ChangeCharacterFrameEra()
+            DragonflightUIMixin:EnhanceCharacterFrame()
         elseif DF.Era then
             DragonflightUIMixin:ChangeCharacterFrameEra()
             Module:FuncOrWaitframe('Blizzard_EngravingUI', function()
@@ -432,6 +434,7 @@ function Module:ChangeFrames()
         --
         DragonflightUIMixin:ChangeQuestLogFrameCata()
         DragonflightUIMixin:ChangeDressupFrame()
+        DragonflightUIMixin:EnhanceDressupFrame()
         DragonflightUIMixin:ChangeTradeFrame()
         DragonflightUIMixin:ChangeGossipFrame()
         DragonflightUIMixin:ChangeQuestFrame()

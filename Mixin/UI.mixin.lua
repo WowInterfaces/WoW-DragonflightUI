@@ -1706,6 +1706,35 @@ function DragonflightUIMixin:ChangeCharacterFrameCata()
     end
 end
 
+function DragonflightUIMixin:EnhanceCharacterFrame()
+    CharacterModelFrame:EnableMouseWheel(true)
+    CharacterModelFrame:HookScript("OnMouseWheel", Model_OnMouseWheel)
+    CharacterModelFrame:HookScript("OnMouseDown", function(self, btn)
+        if btn == "RightButton" then
+            Model_StartPanning(self)
+        end
+    end)
+    CharacterModelFrame:HookScript("OnMouseUp", function(self, btn)
+        Model_StopPanning(self)
+    end)
+end
+
+function DragonflightUIMixin:EnhanceInspectFrame()
+    local function DoInspectSystemFunc()
+        InspectModelFrame:EnableMouseWheel(true)
+        InspectModelFrame:HookScript("OnMouseWheel", Model_OnMouseWheel)
+        InspectModelFrame:HookScript("OnMouseDown", function(self, btn)
+            if btn == "RightButton" then
+                Model_StartPanning(self)
+            end
+        end)
+        InspectModelFrame:HookScript("OnMouseUp", function(self, btn)
+            Model_StopPanning(self)
+        end)
+    end
+    DF.Compatibility:FuncOrWaitframe("Blizzard_InspectUI", DoInspectSystemFunc)
+end
+
 function DragonflightUIMixin:ChangeTaxiFrame()
     local frame = TaxiFrame
 
@@ -2926,7 +2955,7 @@ function DragonflightUIMixin:ChangeSpellbookEra()
     SpellBookPrevPageButton:ClearAllPoints()
     SpellBookPrevPageButton:SetPoint('BOTTOMRIGHT', SpellBookPageNavigationFrame, 'BOTTOMRIGHT', -66, 26)
 
-    --[[   -- TODO: Taint :(
+    -- TODO: Taint :(
     frame:HookScript('OnMouseWheel', function(self, arg1)
         --
         -- print('OnMouseWheel', arg1)
@@ -2939,7 +2968,7 @@ function DragonflightUIMixin:ChangeSpellbookEra()
             SpellBookNextPageButton:Click()
         end
     end)
-    frame:SetHitRectInsets(0, 0, 0, 0); ]]
+    frame:SetHitRectInsets(0, 0, 0, 0);
 
     SpellBookPageText:ClearAllPoints()
     SpellBookPageText:SetPoint('BOTTOMRIGHT', SpellBookPageNavigationFrame, 'BOTTOMRIGHT', -110, 38)
