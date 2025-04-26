@@ -7,7 +7,7 @@ local Module = DF:NewModule(mName, 'AceConsole-3.0', 'AceHook-3.0')
 local noop = function()
 end
 
-local ActionBarCount = 8
+local ActionBarCount = 14
 
 Mixin(Module, DragonflightUIModulesMixin)
 
@@ -559,6 +559,59 @@ local defaults = {
         }
     }
 }
+if ActionBarCount > 8 then
+    for i = 9, ActionBarCount do
+        defaults.profile['bar'..i] = {
+            scale = 1,
+            anchorFrame = 'UIParent',
+            anchor = 'BOTTOM',
+            anchorParent = 'TOP',
+            x = 0,
+            y = 0,
+            orientation = 'horizontal',
+            reverse = false,
+            buttonScale = 0.75,
+            rows = 1,
+            buttons = 12,
+            padding = 2,
+            -- Style
+            alwaysShow = true,
+            activate = false,
+            hideMacro = false,
+            macroFontSize = 15,
+            hideKeybind = false,
+            keybindFontSize = 16,
+            -- Visibility
+            showMouseover = false,
+            hideAlways = false,
+            hideCombat = false,
+            hideOutOfCombat = false,
+            hidePet = false,
+            hideNoPet = false,
+            hideStance = false,
+            hideStealth = false,
+            hideNoStealth = false,
+            hideCustom = false,
+            hideCustomCond = ''
+        }
+        if i == 9 then
+            defaults.profile['bar'..i].anchorFrame = 'DragonflightUIActionbarFrame8'
+            defaults.profile['bar'..i].buttonScale = 0.7
+            defaults.profile['bar'..i].rows = 2
+            defaults.profile['bar'..i].activate = true
+        else
+            if i == 10 then
+                defaults.profile['bar'..i].anchorFrame = 'UIParent'
+                defaults.profile['bar'..i].anchor = 'CENTER'
+                defaults.profile['bar'..i].anchorParent = 'CENTER'
+                defaults.profile['bar'..i].y = -20
+            else
+                defaults.profile['bar'..i].anchorFrame = 'DragonflightUIActionbarFrame'..(i-1)
+            end
+        end
+    end
+    defaults.profile.possess.anchorFrame = 'DragonflightUIActionbarFrame9'
+end
 
 Module:SetDefaults(defaults)
 
@@ -2494,6 +2547,18 @@ function Module:ApplySettings(sub)
         Module.bar7:SetState(db.bar7)
     elseif sub == 'bar8' then
         Module.bar8:SetState(db.bar8)
+    elseif sub == 'bar9' then
+        Module.bar9:SetState(db.bar9)
+    elseif sub == 'bar10' then
+        Module.bar10:SetState(db.bar10)
+    elseif sub == 'bar11' then
+        Module.bar11:SetState(db.bar11)
+    elseif sub == 'bar12' then
+        Module.bar12:SetState(db.bar12)
+    elseif sub == 'bar13' then
+        Module.bar13:SetState(db.bar13)
+    elseif sub == 'bar14' then
+        Module.bar14:SetState(db.bar14)
     elseif sub == 'extraActionButton' then
         if DF.Cata then Module:UpdateExtraButtonState(db.extraActionButton) end
     elseif sub == 'pet' then
