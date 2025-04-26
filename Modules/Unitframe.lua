@@ -3855,7 +3855,7 @@ function Module.ChangeToT()
     TargetFrameToTTextureFrameUnconsciousText:ClearAllPoints()
     TargetFrameToTTextureFrameUnconsciousText:SetPoint('CENTER', TargetFrameToTHealthBar, 'CENTER', 0, 0)
 
-    TargetFrameToTDebuff1:SetPoint('TOPLEFT', TargetFrameToT, 'TOPRIGHT', 5, -20)
+    TargetFrameToTDebuff1:SetPoint('TOPLEFT', TargetFrameToT, 'TOPRIGHT', 25, -20)
 end
 
 function Module.ChangeFocusFrame()
