@@ -89,7 +89,7 @@ function DF.Compatibility:AuctionatorCraftingInfoFrame()
         end)
         prof:HookScript('OnEvent', function()
             --
-            -- print('OnShow')     
+            -- print('OnShow')
             if prof.TradeSkillOpen then
                 fixFrameCraft()
                 auctionCraftingFrame:Show()
@@ -158,7 +158,7 @@ function DF.Compatibility:AuctionatorCraftingInfoFrame()
             -- end)
             prof:HookScript('OnEvent', function()
                 --
-                -- print('OnShow')     
+                -- print('OnShow')
                 if prof.CraftOpen then
                     fixFrameEnchant()
                     enchantFrame:Show()

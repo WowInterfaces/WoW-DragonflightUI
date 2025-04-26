@@ -176,7 +176,7 @@ function DragonflightUIBossframeMixin:SetupTargetFrameStyle()
 
         self.ManaBar = mana
 
-        -- local powerType, powerTypeString = UnitPowerType('target')   
+        -- local powerType, powerTypeString = UnitPowerType('target')
         self:UpdatePowerType('MANA')
     end
 
@@ -207,7 +207,7 @@ function DragonflightUIBossframeMixin:SetupTargetFrameStyle()
 
     do
         local level = self:CreateFontString(nil, 'OVERLAY', 'GameFontNormalSmall')
-        -- level:SetSize(100, 10)    
+        -- level:SetSize(100, 10)
         level:SetPoint('BOTTOMRIGHT', self.HealthBar, 'TOPLEFT', 16, 3 - 2)
 
         -- level:SetText('69')

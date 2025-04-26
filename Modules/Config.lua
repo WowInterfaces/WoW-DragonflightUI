@@ -279,7 +279,7 @@ function Module:AddMainMenuButton()
         local editBtn = Module.EditModeButton
 
         -- TODO:
-        -- 'Interface action failed because of an AddOn' when infight and clicking DF Menu button    
+        -- 'Interface action failed because of an AddOn' when infight and clicking DF Menu button
         local storeIsRestricted = IsTrialAccount();
         if (C_StorePublic.IsEnabled() and C_StorePublic.HasPurchaseableProducts() and not storeIsRestricted) then
             btn:SetPoint('TOP', GameMenuButtonStore, 'BOTTOM', 0, -16)

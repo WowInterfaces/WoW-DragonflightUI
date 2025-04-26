@@ -233,7 +233,7 @@ end
 local frame = CreateFrame('FRAME')
 
 function frame:OnEvent(event, arg1)
-    -- print('event', event) 
+    -- print('event', event)
 end
 frame:SetScript('OnEvent', frame.OnEvent)
 

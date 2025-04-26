@@ -287,7 +287,7 @@ end
 function SettingsSliderMixinDF:OnLoad()
     CallbackRegistryMixin.OnLoad(self);
 
-    -- self:Init(setting:GetValue(), options.minValue, options.maxValue, options.steps, options.formatters);   
+    -- self:Init(setting:GetValue(), options.minValue, options.maxValue, options.steps, options.formatters);
     local options = Settings.CreateSliderOptions(0, 100, 1);
     self:Init(41, options.minValue, options.maxValue, options.steps, sliderFormat)
 
@@ -823,7 +823,7 @@ function SettingsListMixinDF:Display(data, small)
         for k in pairs(t) do keys[#keys + 1] = k end
 
         -- if order function given, sort by it by passing the table and keys a, b,
-        -- otherwise just sort the keys 
+        -- otherwise just sort the keys
         if order then
             table.sort(keys, function(a, b)
                 return order(t, a, b)

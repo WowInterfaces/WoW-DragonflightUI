@@ -136,7 +136,7 @@ function DragonflightUIEditModePreviewTargetMixin:SetupFrame()
     self.TargetFramePortrait = portrait
     function portrait:UpdatePortrait(id)
         if not id then return end
-        -- SetPortraitTexture(self.TargetFramePortrait, unit)   
+        -- SetPortraitTexture(self.TargetFramePortrait, unit)
         SetPortraitTextureFromCreatureDisplayID(portrait, tonumber(id) or 0);
     end
     portrait:UpdatePortrait('player')
@@ -342,7 +342,7 @@ function DragonflightUIEditModePreviewTargetOfTargetMixin:SetupFrame()
     self.TargetFramePortrait = portrait
     function portrait:UpdatePortrait(id)
         if not id then return end
-        -- SetPortraitTexture(self.TargetFramePortrait, unit)   
+        -- SetPortraitTexture(self.TargetFramePortrait, unit)
         SetPortraitTextureFromCreatureDisplayID(portrait, tonumber(id) or 0);
     end
     portrait:UpdatePortrait('player')
@@ -497,7 +497,7 @@ function DragonflightUIEditModePreviewPartyFrameMixin:OnLoad()
     self.PartyFrames = {}
 
     for k = 1, 4 do
-        -- 
+        --
         local fakeParty = CreateFrame('Frame', 'DragonflightUIEditModeParty' .. k .. 'Preview', self,
                                       'DFEditModePreviewPartyTemplate')
         fakeParty:OnLoad()
@@ -592,7 +592,7 @@ end
 function DragonflightUIEditModePreviewPartyFrameMixin:UpdateVisibility()
     if (GetDisplayedAllyFrames() ~= "party") then
         for k, v in ipairs(self.PartyFrames) do
-            --           
+            --
             v:Show()
         end
         return;
@@ -661,7 +661,7 @@ function DragonflightUIEditModePreviewPartyMixin:SetupFrame()
     self.TargetFramePortrait = portrait
     function portrait:UpdatePortrait(id)
         if not id then return end
-        -- SetPortraitTexture(self.TargetFramePortrait, unit)   
+        -- SetPortraitTexture(self.TargetFramePortrait, unit)
         SetPortraitTextureFromCreatureDisplayID(portrait, tonumber(id) or 0);
     end
 
@@ -890,7 +890,7 @@ function DragonflightUIEditModePreviewRaidFrameMixin:OnLoad()
     local gap = 0;
 
     for k = 1, 40 do
-        -- 
+        --
         local member = CreateFrame('Frame', 'DragonflightUIEditModeRaid' .. k .. 'Preview', self,
                                    'DFEditModePreviewRaidTemplate')
         member:OnLoad()
@@ -913,7 +913,7 @@ function DragonflightUIEditModePreviewRaidFrameMixin:OnLoad()
 
     self.AssistFrames = {};
     for k = 1, 2 do
-        -- 
+        --
         local member = CreateFrame('Frame', 'DragonflightUIEditModeRaid' .. k .. 'Preview', self,
                                    'DFEditModePreviewRaidTemplate')
         member:OnLoad()
@@ -1025,7 +1025,7 @@ function DragonflightUIEditModePreviewRaidFrameMixin:UpdateState(state)
                         v:SetPoint('TOPLEFT', self, 'TOPLEFT', 0, 0 - 14);
                     elseif mod == 1 then
                         -- header
-                        local groupIndex = 1 + (k - mod) / 5; -- 1,2,3             
+                        local groupIndex = 1 + (k - mod) / 5; -- 1,2,3
 
                         local column = math.floor((groupIndex - 1) / maxRows) + 1;
                         local row = groupIndex - maxRows * (column - 1);
@@ -1126,7 +1126,7 @@ end
 function DragonflightUIEditModePreviewRaidFrameMixin:UpdateVisibility()
     -- if (GetDisplayedAllyFrames() ~= "party") then
     --     for k, v in ipairs(self.PartyFrames) do
-    --         --           
+    --         --
     --         v:Show()
     --     end
     --     return;
@@ -1212,7 +1212,7 @@ function DragonflightUIEditModePreviewRaidMixin:SetupFrame()
     frame.healthBar:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -1, 1 + powerBarUsedHeight);
 
     frame.healthBar:SetStatusBarTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Fill");
-    frame.healthBar:SetStatusBarColor(0.0, 1.0, 0.0) -- 
+    frame.healthBar:SetStatusBarColor(0.0, 1.0, 0.0) --
     frame.healthBar:SetFrameLevel(7)
 
     frame.powerBar = CreateFrame('StatusBar', nil, self)

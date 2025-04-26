@@ -816,7 +816,7 @@ function DragonFlightUICastbarMixin:Update()
         self:SetParent(parent) -- TODO
     end
     -- self:ClearAllPoints()
-    -- self:SetPoint(state.anchor, parent, state.anchorParent, state.x, state.y) 
+    -- self:SetPoint(state.anchor, parent, state.anchorParent, state.x, state.y)
     self:AdjustPosition()
 
     self:SetPrecision(state.preci, state.preciMax)
@@ -844,7 +844,7 @@ function DragonFlightUICastbarMixin:AdjustPosition()
     self:ClearAllPoints()
 
     if state.autoAdjust then
-        --   
+        --
         local rows = self:GetParent().auraRows or 0
         local auraSize = 22
 

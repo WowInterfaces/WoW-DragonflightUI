@@ -311,7 +311,7 @@ end
 local frame = CreateFrame('FRAME')
 
 function frame:OnEvent(event, arg1, arg2, arg3)
-    -- print('event', event)   
+    -- print('event', event)
 end
 frame:SetScript('OnEvent', frame.OnEvent)
 
@@ -339,7 +339,7 @@ function Module:SetupMainmenuButton()
     local btn = configModule.EditModeButton
 
     btn:SetScript('OnClick', function()
-        -- 
+        --
         DF:Debug(self, 'editmode')
         Module:SetEditMode(not Module.IsEditMode)
     end)

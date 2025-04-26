@@ -633,7 +633,7 @@ local function frameTableWithout(without)
     for k, v in ipairs(frameTable) do
         --
         if v.value ~= without then
-            --      
+            --
             table.insert(newTable, v);
         end
     end
@@ -1563,7 +1563,7 @@ local microOptions = {
         --     name = 'Hidden',
         --     desc = 'Hide Micromenu' .. getDefaultStr('hidden', 'micro'),
         --     order = 7
-        -- },   
+        -- },
     }
 }
 DF.Settings:AddPositionTable(Module, microOptions, 'micro', 'Micromenu', getDefaultStr, frameTable)
@@ -1935,7 +1935,7 @@ function Module:SetupActionbarFrames()
                 btn:RegisterForClicks("AnyUp")
             end
 
-            -- btn:UpdateAction()          
+            -- btn:UpdateAction()
         end
 
         local bar = CreateFrame('FRAME', 'DragonflightUIActionbarFrame' .. n, UIParent,
@@ -1956,7 +1956,7 @@ function Module:SetupActionbarFrames()
     DragonFlightUIQuickKeybindMixin:HookExtraButtons()
 
     hooksecurefunc('ActionButton_UpdateHotkeys', function(self, actionButtonType)
-        -- print('ActionButton_UpdateHotkeys')        
+        -- print('ActionButton_UpdateHotkeys')
         if self.DragonflightFixHotkeyPosition then self.DragonflightFixHotkeyPosition() end
         if self.UpdateHotkeys then self:UpdateHotkeys(actionButtonType) end
     end)
@@ -2110,7 +2110,7 @@ function Module:AddEditMode()
         moduleRef = self
     });
 
-    -- XP 
+    -- XP
     EditModeModule:AddEditModeToFrame(Module.xpbar)
 
     Module.xpbar.DFEditModeSelection:SetGetLabelTextFunction(function()
@@ -2129,7 +2129,7 @@ function Module:AddEditMode()
         moduleRef = self
     });
 
-    -- Rep 
+    -- Rep
     EditModeModule:AddEditModeToFrame(Module.repbar)
 
     Module.repbar.DFEditModeSelection:SetGetLabelTextFunction(function()
@@ -2148,7 +2148,7 @@ function Module:AddEditMode()
         moduleRef = self
     });
 
-    -- Possess 
+    -- Possess
     EditModeModule:AddEditModeToFrame(PossessBarFrame)
 
     PossessBarFrame.DFEditModeSelection:SetGetLabelTextFunction(function()
@@ -2173,7 +2173,7 @@ function Module:AddEditMode()
     PossessBarFrame.DFEditModeSelection:SetPoint('BOTTOMRIGHT', _G['PossessButton2'], 'BOTTOMRIGHT', possessDelta,
                                                  -possessDelta)
 
-    -- Stance 
+    -- Stance
     EditModeModule:AddEditModeToFrame(Module.stancebar)
 
     Module.stancebar.DFEditModeSelection:SetGetLabelTextFunction(function()
@@ -2233,7 +2233,7 @@ function Module:AddEditMode()
         moduleRef = self
     });
 
-    -- Micro 
+    -- Micro
     EditModeModule:AddEditModeToFrame(Module.MicroFrame)
 
     Module.MicroFrame.DFEditModeSelection:SetGetLabelTextFunction(function()
@@ -2252,7 +2252,7 @@ function Module:AddEditMode()
         moduleRef = self
     });
 
-    -- fps 
+    -- fps
     EditModeModule:AddEditModeToFrame(Module.FPSFrame)
 
     Module.FPSFrame.DFEditModeSelection:SetGetLabelTextFunction(function()
@@ -2444,7 +2444,7 @@ function Module:ApplySettings(sub)
             end
         else
             if Module.UpdateRangeHooked then
-                -- remove hook      
+                -- remove hook
                 Module.UpdateRangeHooked = false
                 self:Unhook('ActionButton_UpdateRangeIndicator')
             end
@@ -2475,7 +2475,7 @@ function Module:ApplySettings(sub)
             end
         else
             if Module.UpdateRangeHooked then
-                -- remove hook      
+                -- remove hook
                 Module.UpdateRangeHooked = false
                 self:Unhook('ActionButton_UpdateRangeIndicator')
             end
@@ -3072,7 +3072,7 @@ end
 function frame:OnEvent(event, arg1)
     -- print('event', event)
     if event == 'PLAYER_ENTERING_WORLD' then
-        -- ActivateAllActionbars() 
+        -- ActivateAllActionbars()
     elseif event == 'SETTINGS_LOADED' then
         -- print('SETTINGS_LOADED')
         Module:CheckActionbarSettingsCVars()
@@ -3459,7 +3459,7 @@ function Module.HookBags()
 
         while (containerScale > CONTAINER_SCALE) do
             screenHeight = GetScreenHeight() / containerScale
-            -- Adjust the start anchor for bags depending on the multibars          
+            -- Adjust the start anchor for bags depending on the multibars
             xOffset = CONTAINER_OFFSET_X_DF / containerScale
             yOffset = CONTAINER_OFFSET_Y_DF / containerScale
             -- freeScreenHeight determines when to start a new column of bags

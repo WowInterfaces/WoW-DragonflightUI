@@ -362,24 +362,24 @@ end
 
 function DragonflightUILFGButtonMixin:HookCata()
     MiniMapLFGFrame:HookScript('OnShow', function()
-        --       
+        --
         --  self.parent.DFEditMode
         self:Show()
     end)
 
     MiniMapLFGFrame:HookScript('OnHide', function()
-        --  
+        --
         if self.DFEditMode then return; end
         self:Hide()
     end)
 
     MiniMapLFGFrame:HookScript('OnEnter', function()
-        --       
+        --
         self:OnEnter()
     end)
 
     MiniMapLFGFrame:HookScript('OnLeave', function()
-        --  
+        --
         self:OnLeave()
     end)
 
@@ -411,24 +411,24 @@ function DragonflightUILFGButtonMixin:HookEra()
     self.Era = true;
 
     _G.LFGMinimapFrame:HookScript('OnShow', function()
-        --       
+        --
         --  self.parent.DFEditMode
         self:Show()
     end)
 
     _G.LFGMinimapFrame:HookScript('OnHide', function()
-        --  
+        --
         if self.DFEditMode then return; end
         self:Hide()
     end)
 
     _G.LFGMinimapFrame:HookScript('OnEnter', function()
-        --       
+        --
         self:OnEnter()
     end)
 
     _G.LFGMinimapFrame:HookScript('OnLeave', function()
-        --  
+        --
         self:OnLeave()
     end)
 
@@ -488,7 +488,7 @@ function DragonflightUILFGButtonMixin:OnLoad()
     self.angerVal = 0;
     self.LastUpdate = GetTime()
 
-    -- self:HookScript('OnClick', GenerateClosure(self.OnClick, self)) 
+    -- self:HookScript('OnClick', GenerateClosure(self.OnClick, self))
 
     self:EnableMouse(false)
 end
@@ -550,7 +550,7 @@ function DragonflightUILFGButtonMixin:OnUpdate()
 
     if GetTime() - self.LastUpdate >= updateInterval then
         self.LastUpdate = GetTime()
-        -- print('self:OnUpdate') 
+        -- print('self:OnUpdate')
         if self.UpdateBlizzard then self:UpdateBlizzard() end
     end
 end

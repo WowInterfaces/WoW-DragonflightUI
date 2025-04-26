@@ -184,7 +184,7 @@ function DragonflightUIActionbarMixin:Update()
             --     if btn:GetAttribute("showgrid") < 1 then btn:SetAttribute("showgrid", 1) end
             -- else
             --     btn:SetAttribute("showgrid", 1)
-            -- end            
+            -- end
             -- else
             -- if btn:GetAttribute("showgrid") and btn:GetAttribute("showgrid") > 0 then
             --     btn:SetAttribute("showgrid", 0)
@@ -194,7 +194,7 @@ function DragonflightUIActionbarMixin:Update()
             --     if not HasAction(btn.action) then btn:Hide() end
             -- else
             --     btn:Hide()
-            -- end              
+            -- end
             -- end
 
             if state.alwaysShow then
@@ -603,7 +603,7 @@ function DragonflightUIActionbarMixin:StyleButtons()
             btn.DragonflightUIMaskTexture = mask
             mask:SetSize(45, 45)
             mask:SetPoint('CENTER', 0, 0)
-            -- mask:SetColorTexture(0, 1, 0, 1)       
+            -- mask:SetColorTexture(0, 1, 0, 1)
             mask:SetMask('Interface\\Addons\\DragonflightUI\\Textures\\maskNew')
             mask:SetDrawLayer('BACKGROUND')
             -- mask:SetTexture(136197)
@@ -615,14 +615,14 @@ function DragonflightUIActionbarMixin:StyleButtons()
                     mask:SetTexture(tex)
                 end
             end) ]]
-        --[[ 
+        --[[
             hooksecurefunc(icon, 'Hide', function(self)
                 mask:Hide()
             end)
             hooksecurefunc(icon, 'SetVertexColor', function(self)
                 local r, g, b = self:GetVertexColor()
                 mask:SetVertexColor(r, g, b)
-            end) 
+            end)
         end
         ]]
 
@@ -990,7 +990,7 @@ function DragonflightUIActionbarMixin:HookFlyout()
         -- print('arrow', arrowDirection, arrowDistance)
 
         -- arrowDirection = 'LEFT'
-        --[[ 
+        --[[
         if (arrowDirection == "LEFT") then
             SetClampedTextureRotation(self.FlyoutArrow, 90);
             self.FlyoutArrow:SetPoint("LEFT", self, "LEFT", -arrowDistance, 0);
@@ -1010,7 +1010,7 @@ function DragonflightUIActionbarMixin:HookFlyout()
 
         if isFlyoutShown then
             -- self.FlyoutArrow:SetTexCoord(0.884766, 0.955078, 0.438965, 0.445801)
-            -- self.FlyoutArrow:SetTexCoord(0.884766, 0.955078, 0.438965, 0.445801)    
+            -- self.FlyoutArrow:SetTexCoord(0.884766, 0.955078, 0.438965, 0.445801)
             self.FlyoutArrow:SetRotation(math.pi, {x = 0.5, y = 0.5})
             self.FlyoutArrow:SetPoint("TOP", self, "TOP", 0, 1);
         else
@@ -1083,7 +1083,7 @@ function DragonflightUIPetbarMixin:StylePetButton()
         -- <Frame name="$parentShine" inherits="AutoCastShineTemplate">
         -- <Anchor point="CENTER" x="0" y="0"/>
         -- <Size x="28" y="28"/>
-        -- shine:SetSize(46, 46)      
+        -- shine:SetSize(46, 46)
 
         local child1, child2, child3 = btn:GetChildren()
         child1:SetSize(41, 41)
@@ -1192,7 +1192,7 @@ function DragonflightUIStancebarMixinCode:Update()
             --     if btn:GetAttribute("showgrid") < 1 then btn:SetAttribute("showgrid", 1) end
             -- else
             --     btn:SetAttribute("showgrid", 1)
-            -- end            
+            -- end
             -- else
             -- if btn:GetAttribute("showgrid") and btn:GetAttribute("showgrid") > 0 then
             --     btn:SetAttribute("showgrid", 0)
@@ -1202,7 +1202,7 @@ function DragonflightUIStancebarMixinCode:Update()
             --     if not HasAction(btn.action) then btn:Hide() end
             -- else
             --     btn:Hide()
-            -- end              
+            -- end
             -- end
 
             -- if state.alwaysShow then

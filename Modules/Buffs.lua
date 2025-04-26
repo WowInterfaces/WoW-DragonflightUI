@@ -107,7 +107,7 @@ local generalOptions = {
         --     max = 5,
         --     bigStep = 0.1,
         --     order = 1
-        -- }    
+        -- }
     }
 }
 
@@ -559,7 +559,7 @@ function Module.AddBuffBorders()
             frame = _G[frameName];
 
             if frame and frame:IsShown() then
-                -- 
+                --
                 if not frame.DFIconBorder then
                     --
                     DragonflightUIMixin:AddIconBorder(frame, true)
@@ -581,7 +581,7 @@ function Module.AddBuffBorders()
             frame = _G[frameName];
 
             if frame and frame:IsShown() then
-                -- 
+                --
                 if not frame.DFIconBorder then
                     --
                     DragonflightUIMixin:AddIconBorder(frame, false)
@@ -656,7 +656,7 @@ end
 local frame = CreateFrame('FRAME')
 
 function frame:OnEvent(event, arg1, arg2, arg3)
-    -- print('event', event)    
+    -- print('event', event)
 end
 frame:SetScript('OnEvent', frame.OnEvent)
 

@@ -24,7 +24,7 @@ local function getOption(info)
     local key = info[1]
 
     if key == 'currentProfile' then
-        --  
+        --
         return Module:GetCurrentProfile()
     end
 
@@ -35,7 +35,7 @@ local function setOption(info, value)
     local key = info[1]
 
     if key == 'currentProfile' then
-        --  
+        --
         Module:SetCurrentProfile(value)
     else
         Module:SetOption(info, value)
@@ -59,7 +59,7 @@ local function GetProfileOptions()
             --     max = 5,
             --     bigStep = 0.1,
             --     order = 1
-            -- }    
+            -- }
         }
     }
 
@@ -292,7 +292,7 @@ function Module:SetupDialogFrames()
             self.text:SetText(string.format(L["ProfilesDialogueDeleteProfile"], toDelete))
         end,
         OnAccept = function(self, data, data2)
-            --         
+            --
             local toDelete = getOption({'toDelete'})
             DF:EnableProfileCallbacks(false)
             Module:SetCurrentProfile('Default')
@@ -322,7 +322,7 @@ function Module:SetupDialogFrames()
             self.editBox:SetScript('OnTextChanged', EditBoxOnTextChanged)
         end,
         OnAccept = function(self, data, data2)
-            --      
+            --
             local text = self.editBox:GetText()
             print(L["ProfilesChatNewProfile"] .. text)
             if text == '' or text == ' ' then
@@ -355,7 +355,7 @@ function Module:SetupDialogFrames()
                 Module.ExportFrame.Editbox:SetText(str)
             end,
             OnAccept = function(self, data, data2)
-                --  
+                --
             end
             -- hasEditBox = true,
             -- editBoxWidth = 200
@@ -416,7 +416,7 @@ function Module:SetupDialogFrames()
                 Module.ImportFrame.Editbox:SetFocus()
             end,
             OnAccept = function(self, data, data2)
-                --  
+                --
                 -- local str = Module:GetSerializedString(active)
                 -- Module.ImportFrame.Editbox:SetText(str)
                 local str = Module.ImportFrame.Editbox:GetText()
@@ -566,7 +566,7 @@ function Module:GeneratorCurrentProfilesWithDefaults(withDefaults, IsSelected, S
         -- DevTools_Dump(defaultProfiles)
 
         rootDescription:SetTag('TAG?')
-        -- rootDescription:CreateTitle('TITLETEST')      
+        -- rootDescription:CreateTitle('TITLETEST')
 
         if withDefaults then
             local radioDefault = rootDescription:CreateRadio('Default', IsSelected, SetSelected, 'Default');
@@ -589,7 +589,7 @@ function Module:GeneratorEditmodeLayout(withDefaults, IsSelected, SetSelected)
         local profiles = Module:GetProfiles()
 
         rootDescription:SetTag('MENU_EDIT_MODE_MANAGER')
-        -- rootDescription:CreateTitle('TITLETEST')      
+        -- rootDescription:CreateTitle('TITLETEST')
 
         if withDefaults then
             local radio = rootDescription:CreateRadio('Default', IsSelected, SetSelected, 'Default');
@@ -707,12 +707,12 @@ function Module:GeneratorEditmodeLayout(withDefaults, IsSelected, SetSelected)
         end
 
         rootDescription:CreateDivider();
-        -- new layout    
+        -- new layout
         -- local disabled = GetDisableReason(disableOnMaxLayouts, not disableOnActiveChanges) ~= nil;
         local disabled = false;
         local text = self:GetNewLayoutText(disabled);
         local newLayoutButton = rootDescription:CreateButton(text, function()
-            -- self:ShowNewLayoutDialog();      
+            -- self:ShowNewLayoutDialog();
             self:ShowNewProfileDialog()
         end);
         -- SetPresetEnabledState(newLayoutButton, disableOnMaxLayouts, not disableOnActiveChanges);
@@ -748,7 +748,7 @@ end
 local frame = CreateFrame('FRAME')
 
 function frame:OnEvent(event, arg1, arg2, arg3)
-    -- print('event', event)    
+    -- print('event', event)
 end
 frame:SetScript('OnEvent', frame.OnEvent)
 

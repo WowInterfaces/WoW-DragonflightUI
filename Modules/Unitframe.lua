@@ -270,7 +270,7 @@ local function frameTableWithout(without)
     for k, v in ipairs(frameTable) do
         --
         if v.value ~= without then
-            --      
+            --
             table.insert(newTable, v);
         end
     end
@@ -1278,7 +1278,7 @@ local optionsRaid = {
         --     bigStep = 1,
         --     order = 6,
         --     editmode = true
-        -- }     
+        -- }
     }
 }
 if true then
@@ -1502,7 +1502,7 @@ if true then
             Settings.SetValue(moreOptions[sub].proxy, value);
             -- InterfaceOverrides.SetRaidProfileOption(sub, value);
             -- local isSecure, taint = issecurevariable('CompactRaidGroup1Member1')
-            -- print('SECURE? ', isSecure, ', TAINT? ', taint)       
+            -- print('SECURE? ', isSecure, ', TAINT? ', taint)
         end
     end
 end
@@ -1560,7 +1560,7 @@ function Module:OnEnable()
     Module:RegisterOptionScreens()
 
     self:SecureHook(DF, 'RefreshConfig', function()
-        -- print('RefreshConfig', mName)      
+        -- print('RefreshConfig', mName)
         Module:ApplySettings()
         Module:RefreshOptionScreens()
     end)
@@ -2108,7 +2108,7 @@ function Module:AddEditMode()
             TargetFrame:SetAlpha(0)
         end,
         hideFunction = function()
-            --        
+            --
             -- TargetFrame.unit = 'target';
             -- TargetFrame_Update(TargetFrame);
             TargetFrame:SetAlpha(1)
@@ -2139,14 +2139,14 @@ function Module:AddEditMode()
         end,
         moduleRef = self,
         showFunction = function()
-            --         
+            --
         end,
         hideFunction = function()
             --
         end
     });
 
-    -- party 
+    -- party
     local fakeParty = CreateFrame('Frame', 'DragonflightUIEditModePartyFramePreview', UIParent,
                                   'DFEditModePreviewPartyFrameTemplate')
     fakeParty:OnLoad()
@@ -2171,7 +2171,7 @@ function Module:AddEditMode()
         end,
         moduleRef = self
         -- showFunction = function()
-        --     --           
+        --     --
         --     for k = 1, 4 do
         --         local p = _G['PartyMemberFrame' .. k]
         --         -- p:SetAlpha(0)
@@ -2180,7 +2180,7 @@ function Module:AddEditMode()
         --     -- Module.PartyMoveFrame:Hide()
         -- end,
         -- hideFunction = function()
-        --     --            
+        --     --
         --     for k = 1, 4 do
         --         local p = _G['PartyMemberFrame' .. k]
         --         -- p:SetAlpha(0)
@@ -2190,10 +2190,10 @@ function Module:AddEditMode()
         -- end
     });
 
-    -- raid frame 
+    -- raid frame
     if true then
         local initRaid = function()
-            --         
+            --
             local f = _G['CompactRaidFrameManagerContainerResizeFrame']
             _G['CompactRaidFrameManagerContainerResizeFrameResizer']:SetFrameLevel(15)
 
@@ -2233,13 +2233,13 @@ function Module:AddEditMode()
                 end,
                 moduleRef = self,
                 showFunction = function()
-                    --  
+                    --
                     f:Show()
                     CompactRaidFrameManager_SetSetting('Locked', false)
                     f:Show()
                 end,
                 hideFunction = function()
-                    --      
+                    --
                     CompactRaidFrameManager_SetSetting('Locked', true)
                     CompactRaidFrameManager_ResizeFrame_SavePosition(CompactRaidFrameManager)
                 end
@@ -2252,7 +2252,7 @@ function Module:AddEditMode()
             hooksecurefunc('CompactRaidFrameManager_UpdateContainerVisibility', function()
                 -- print('CompactRaidFrameManager_UpdateContainerVisibility')
                 if editModule.IsEditMode then
-                    --             
+                    --
                     -- CompactRaidFrameManager_SetSetting('Locked', false)
                     C_Timer.After(0, function()
                         --
@@ -2348,7 +2348,7 @@ function Module:AddEditMode()
             end,
             moduleRef = self,
             showFunction = function()
-                --         
+                --
             end,
             hideFunction = function()
                 --
@@ -3128,17 +3128,17 @@ function Module:AddAlternatePowerBar()
         AlternatePowerBar_UpdateValue(self);
     end
 
-    -- 
+    --
     AlternatePowerBar_OnLoad(bar)
     TextStatusBar_Initialize(bar)
 
     bar:SetScript('OnEvent', function(self, event, ...)
-        -- 
+        --
         AlternatePowerBar_OnEvent(self, event, ...);
         TextStatusBar_OnEvent(self, event, ...);
     end)
     bar:SetScript('OnUpdate', function(self, elapsed)
-        -- 
+        --
         AlternatePowerBar_OnUpdate(self, elapsed);
     end)
     -- bar:SetScript('OnMouseUp', function() end)
@@ -3405,10 +3405,10 @@ function Module.ChangeTargetFrame()
         TargetFrameNameBackground.DFHooked = true
 
         TargetFrameNameBackground:HookScript('OnShow', function()
-            --          
+            --
             local db = Module.db.profile.target
             if db.hideNameBackground then
-                -- 
+                --
                 TargetFrameNameBackground:Hide()
             end
         end)
@@ -3608,7 +3608,7 @@ function Module.UpdateComboFrameState(state)
         c:SetSize(116, 20)
         c:ClearAllPoints()
         -- c:SetPoint('TOP', PlayerFrame, 'BOTTOM', 50 - 8, 34 + 4)
-        -- ShardBarFrame:SetPoint('TOP', PlayerFrame, 'BOTTOM', 50, 34 - 1)   
+        -- ShardBarFrame:SetPoint('TOP', PlayerFrame, 'BOTTOM', 50, 34 - 1)
 
         local localizedClass, englishClass, classIndex = UnitClass('player');
         if englishClass == 'DRUID' then
@@ -3900,10 +3900,10 @@ function Module.ChangeFocusFrame()
         FocusFrameNameBackground.DFHooked = true
 
         FocusFrameNameBackground:HookScript('OnShow', function()
-            --          
+            --
             local db = Module.db.profile.focus
             if db.hideNameBackground then
-                -- 
+                --
                 FocusFrameNameBackground:Hide()
             end
         end)
@@ -5075,7 +5075,7 @@ function frame:OnEvent(event, arg1)
         Module.UpdateFocusText()
     elseif event == 'UNIT_POWER_UPDATE' and arg1 == 'pet' then
     elseif event == 'PET_BAR_UPDATE' then
-        -- print('PET_BAR_UPDATE')      
+        -- print('PET_BAR_UPDATE')
     elseif event == 'UNIT_POWER_UPDATE' then
         -- print(event, arg1)
     elseif event == 'UNIT_HEALTH' and arg1 == 'focus' then

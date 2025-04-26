@@ -261,7 +261,7 @@ function DragonflightUITalentsPanelMixin:Init(id)
         -- events
 
         button:SetScript('OnEnter', function(self)
-            --                    
+            --
             GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
             GameTooltip:SetTalent(id, i)
         end)
@@ -272,7 +272,7 @@ function DragonflightUITalentsPanelMixin:Init(id)
         end)
 
         button:SetScript('OnClick', function(self, button)
-            --                    
+            --
             DragonflightUITalentsPanelMixin:ButtonOnClick(self, button)
         end)
 
@@ -302,11 +302,11 @@ function DragonflightUITalentsPanelMixin:ButtonOnClick(self, button)
             if (GetCVarBool("previewTalentsOption")) then
                 AddPreviewTalentPoints(panelID, talentID, 1, false, selectedSpec)
             else
-                ---@diagnostic disable-next-line: redundant-parameter
+            ---@diagnostic disable-next-line: redundant-parameter
                 LearnTalent(panelID, talentID)
             end
         elseif button == 'RightButton' then
-            --          
+            --
 
             if (GetCVarBool("previewTalentsOption")) then
                 --
@@ -340,7 +340,7 @@ function DragonflightUITalentsPanelMixin:Refresh()
         GetTalentTabInfo(panelID, false, false, selectedSpec)
     local tabPointsSpent = pointsSpent + previewPointsSpent
     -- print('TalentTab', id, pointsSpent, previewPointsSpent)
-    -- print(id, name, description, iconTexture, pointsSpent, background, previewPointsSpent, isUnlocked) 
+    -- print(id, name, description, iconTexture, pointsSpent, background, previewPointsSpent, isUnlocked)
 
     local isActiveTalentGroup = selectedSpec == activeSpec
 
@@ -625,7 +625,7 @@ function DragonflightUITalentsPanelMixin:SetPrereqs(buttonTier, buttonColumn, fo
     for i = 1, select("#", ...), 4 do
         local tier, column, isLearnable, isPreviewLearnable = select(i, ...);
         if (forceDesaturated or (preview and not isPreviewLearnable) or (not preview and not isLearnable)) then
-            ---@diagnostic disable-next-line: cast-local-type
+---@diagnostic disable-next-line: cast-local-type
             requirementsMet = nil;
         end
         self:DrawLines(buttonTier, buttonColumn, tier, column, requirementsMet)
@@ -814,17 +814,17 @@ end
 -- 'DAMAGER', 'TANK', 'HEALER'
 local PlayerClassRoleTable = {
     {{'DAMAGER'}, {'DAMAGER'}, {'TANK'}}, -- Warrior
-    {{'HEALER'}, {'TANK'}, {'DAMAGER'}}, -- Paladin 
-    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Hunter 
-    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Rogue 
-    {{'HEALER'}, {'HEALER'}, {'DAMAGER'}}, -- Priest  
-    {{'TANK'}, {'DAMAGER'}, {'DAMAGER'}}, -- DeathKnight 
-    {{'DAMAGER'}, {'DAMAGER', 'TANK'}, {'HEALER'}}, -- Shaman 
-    {{'DAMAGER', 'HEALER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Mage 
-    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Warlock 
-    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Monk 
-    {{'DAMAGER'}, {'DAMAGER', 'TANK'}, {'HEALER'}}, -- Druid 
-    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}} -- Demon Hunter 
+    {{'HEALER'}, {'TANK'}, {'DAMAGER'}}, -- Paladin
+    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Hunter
+    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Rogue
+    {{'HEALER'}, {'HEALER'}, {'DAMAGER'}}, -- Priest
+    {{'TANK'}, {'DAMAGER'}, {'DAMAGER'}}, -- DeathKnight
+    {{'DAMAGER'}, {'DAMAGER', 'TANK'}, {'HEALER'}}, -- Shaman
+    {{'DAMAGER', 'HEALER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Mage
+    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Warlock
+    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}}, -- Monk
+    {{'DAMAGER'}, {'DAMAGER', 'TANK'}, {'HEALER'}}, -- Druid
+    {{'DAMAGER'}, {'DAMAGER'}, {'DAMAGER'}} -- Demon Hunter
 }
 
 function DragonflightUITalentsPanelMixin:GetPlayerRole(panelID)
@@ -836,7 +836,7 @@ function DragonflightUITalentsPanelMixin:GetPlayerRole(panelID)
 end
 
 function DragonflightUITalentsPanelMixin:UpdateRoleIcon(self, panelID)
-    -- local role1, role2 = GetTalentTreeRoles(self.talentTree, self.inspect, self.pet); 
+    -- local role1, role2 = GetTalentTreeRoles(self.talentTree, self.inspect, self.pet);
     -- local role1, role2 = 'TANK', 'TANK'
     local role1, role2 = DragonflightUITalentsPanelMixin:GetPlayerRole(panelID)
 

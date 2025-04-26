@@ -182,9 +182,9 @@ function DragonflightUICharacterStatsPanelMixin:SetupScrollBox()
     ScrollUtil.AddManagedScrollBarVisibilityBehavior(self.ScrollBox, self.ScrollBar, scrollBoxAnchorsWithBar,
                                                      scrollBoxAnchorsWithBar);
 
-    -- always show scroll 
+    -- always show scroll
     self.DataProvider:RegisterCallback("OnSizeChanged", function()
-        --     
+        --
         self.ScrollBar:Show()
     end)
 end
@@ -392,7 +392,7 @@ function DragonflightUICharacterStatsPanelMixin:AddDefaultStats()
         -- })
 
         local function normalize(d, pad)
-            -- return d          
+            -- return d
             return string.format("%s %.2f", pad or '', (d / BASE_MOVEMENT_SPEED * 100)) .. '%'
         end
 
@@ -721,7 +721,7 @@ function DragonflightUICharacterStatsPanelMixin:AddDefaultStats()
             name = ATTACK_SPEED,
             descr = '..',
             func = function()
-                local frameText; -- df                   
+                local frameText; -- df
 
                 local newTable = {} -- df
                 local speed, offhandSpeed = UnitAttackSpeed('player');
@@ -923,7 +923,7 @@ function DragonflightUICharacterStatsPanelMixin:AddDefaultStats()
                 local speed, lowDmg, hiDmg, posBuff, negBuff, percent = UnitRangedDamage('player');
                 frameText = string.format('%.2f', speed);
 
-                local newTable = {} -- df         
+                local newTable = {} -- df
 
                 newTable[1] = {left = RANGED}
                 newTable[2] = {left = ATTACK_SPEED_SECONDS, right = frameText}
@@ -1092,7 +1092,7 @@ function DragonflightUICharacterStatsPanelMixin:AddDefaultStats()
         local armor = function()
             local frameText; -- df
             local tooltip; -- df
-            local tooltip2; -- df           
+            local tooltip2; -- df
 
             local base, effectiveArmor, _armor, posBuff, negBuff = UnitArmor('player');
 
@@ -1197,7 +1197,7 @@ function DragonflightUICharacterStatsPanelMixin:AddDefaultStats()
             {0, 1.0, 0, 0.11328125}, -- fire
             {0, 1.0, 0.11328125, 0.2265625}, -- nature
             {0, 1.0, 0.33984375, 0.453125}, -- frost
-            {0, 1.0, 0.453125, 0.56640625}, -- shadow  
+            {0, 1.0, 0.453125, 0.56640625}, -- shadow
             {0, 1.0, 0.2265625, 0.33984375} -- arcane
         }
         for k, v in ipairs(resCoords) do

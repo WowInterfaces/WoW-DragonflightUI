@@ -674,7 +674,7 @@ function Module:AddEditMode()
         options = optionsDurability,
         extra = optionsDurabilityEditmode,
         showFunction = function()
-            -- 
+            --
         end,
         hideFunction = function()
             -- DurabilityFrame_SetAlerts()
@@ -775,7 +775,7 @@ function Module.UpdateTrackerState(state)
         QuestWatchFrame:SetPoint(state.anchor, parent, state.anchorParent, state.x, state.y)
 
         -- QuestWatchFrame:SetHeight(800)
-        -- QuestWatchFrame:SetWidth(204)    
+        -- QuestWatchFrame:SetWidth(204)
 
         QuestTimerFrame:ClearAllPoints()
         -- QuestTimerFrame:SetPoint('TOP', Minimap, 'BOTTOMLEFT', 0, 0)
@@ -1225,7 +1225,7 @@ function Module.LockMinimap(locked)
         -- print('not locked')
 
         Minimap:SetMovable(true)
-        -- Minimap:EnableMouse(true)      
+        -- Minimap:EnableMouse(true)
         Minimap:RegisterForDrag("LeftButton")
         Minimap:SetScript("OnDragStart", function(self)
             local x, y = Minimap:GetCenter()
@@ -1395,7 +1395,7 @@ function Module:UpdateButton(btn)
     local children = {btn:GetRegions()}
 
     for i, child in ipairs(children) do
-        --            
+        --
         if child:GetObjectType() == 'Texture' then
             --
             local tex = child:GetTexture()
@@ -1406,7 +1406,7 @@ function Module:UpdateButton(btn)
                 child:SetTexture(base .. 'ui-minimap-zoombutton-highlight')
             elseif tex == 136430 then
                 -- overlay
-                ----"Interface\\Minimap\\MiniMap-TrackingBorder"                  
+                ----"Interface\\Minimap\\MiniMap-TrackingBorder"
                 child:SetSize(50, 50)
                 child:SetTexture(base .. 'minimap-trackingborder')
                 child:ClearAllPoints()
@@ -1467,7 +1467,7 @@ function Module.ChangeMinimapButtons()
     -- DevTools_Dump(buttons)
 
     for k, v in ipairs(buttons) do
-        -- DevTools_Dump(v) 
+        -- DevTools_Dump(v)
         ---@diagnostic disable-next-line: param-type-mismatch
         local btn = libIcon:GetMinimapButton(v)
         -- DevTools_Dump(btn)
@@ -1507,7 +1507,7 @@ function Module.HandlePing(unit, y, x)
 end
 
 function frame:OnEvent(event, arg1, arg2, arg3)
-    -- print('event', event) 
+    -- print('event', event)
     if event == 'MINIMAP_PING' then
         --
         Module.HandlePing(arg1, arg2, arg3)

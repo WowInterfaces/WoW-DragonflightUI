@@ -204,7 +204,7 @@ function DragonflightUIMicroMenuMixin:ChangeButtons()
         self:ChangeMicroMenuButton(SpellbookMicroButton, 'SpellbookAbilities')
         self:ChangeMicroMenuButton(TalentMicroButton, 'SpecTalents')
         self:ChangeMicroMenuButton(QuestLogMicroButton, 'Questlog')
-        -- WorldMapMicroButton    
+        -- WorldMapMicroButton
         self:ChangeMicroMenuButton(WorldMapMicroButton, 'Collections')
 
         if LFGMicroButton then self:ChangeMicroMenuButton(LFGMicroButton, 'Groupfinder') end

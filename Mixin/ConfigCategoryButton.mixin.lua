@@ -59,7 +59,7 @@ function DragonFlightUIConfigCategoryButtonMixin:SetCallback(cb)
 end
 
 function DragonFlightUIConfigCategoryButtonMixin:BtnClicked()
-    -- print('DragonFlightUIConfigCategoryButtonMixin:BtnClicked()')  
+    -- print('DragonFlightUIConfigCategoryButtonMixin:BtnClicked()')
     if self:IsEnabled() then self.categoryRef.configRef:SubCategoryBtnClicked(self) end
     self:UpdateState()
 end

@@ -10,7 +10,7 @@ function DragonflightUIItemColorMixin:OnEvent(event, arg1, ...)
 end
 
 local base = 'Interface\\Addons\\DragonflightUI\\Textures\\UI\\'
----@return texture 
+---@return texture
 function DragonflightUIItemColorMixin:AddOverlayToFrame(frame)
     if frame.DFQuality then
         --
@@ -120,7 +120,7 @@ function DragonflightUIItemColorMixin:HookInspectFrame()
     hooksecurefunc('InspectPaperDollItemSlotButton_Update', function(self)
         if ignored[self] then return end
         if not self.DFQuality then
-            --           
+            --
             local overlay = DragonflightUIItemColorMixin:AddOverlayToFrame(self)
             overlay:SetPoint('CENTER')
         end
@@ -187,7 +187,7 @@ function DragonflightUIItemColorMixin:HookBags()
     end
 
     hooksecurefunc('ToggleBackpack', function()
-        --   
+        --
         local containerFrame = _G['ContainerFrame1'];
         -- print('ToggleBackpack', 'allBags: ', (containerFrame.allBags == true))
 
@@ -199,19 +199,19 @@ function DragonflightUIItemColorMixin:HookBags()
     end);
 
     hooksecurefunc('ToggleBag', function(id)
-        --   
+        --
         -- print('ToggleBag', id)
         DragonflightUIItemColorMixin:UpdateBag(id)
     end);
 
     hooksecurefunc('MerchantFrame_UpdateMerchantInfo', function()
-        --        
+        --
         -- print('MerchantFrame_UpdateMerchantInfo')
         DragonflightUIItemColorMixin:UpdateMerchant()
     end)
 
     hooksecurefunc('MerchantFrame_UpdateBuybackInfo', function()
-        --       
+        --
         -- print('MerchantFrame_UpdateBuybackInfo')
         DragonflightUIItemColorMixin:UpdateMerchantBuyback()
     end)

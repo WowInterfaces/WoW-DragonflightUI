@@ -839,7 +839,7 @@ function Module.AddNewCastbar()
 end
 
 function frame:OnEvent(event, arg1)
-    -- print('event', event, arg1) 
+    -- print('event', event, arg1)
 end
 frame:SetScript('OnEvent', frame.OnEvent)
 

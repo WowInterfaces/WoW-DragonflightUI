@@ -150,7 +150,7 @@ function DFProfessionMixin:Minimize(mini)
     self.minimized = mini
 
     if mini then
-        -- 
+        --
         self:SetWidth(frameWidthSmall)
         self:UpdateUIPanelWindows(false)
 
@@ -397,7 +397,7 @@ function DFProfessionMixin:SetupFrameStyle()
     if DF.Era then
         local trainingFrame = CreateFrame('Frame', 'DragonflightUIProfessionTrainingPointFrame', self)
         trainingFrame:SetSize(120, 18)
-        -- trainigFrame:SetPoint('TOPLEFT', self, 'TOPLEFT', 280, -40) 
+        -- trainigFrame:SetPoint('TOPLEFT', self, 'TOPLEFT', 280, -40)
         trainingFrame:SetPoint('RIGHT', CraftCreateButton, 'LEFT', -12, 0)
         self.TrainingFrame = trainingFrame
 
@@ -564,7 +564,7 @@ function DFProfessionMixin:SetupSchematics()
         frame.ReagentTable[i] = reagent
 
         local reagentIcon = _G[reagent:GetName() .. 'IconTexture']
-        -- reagentIcon:SetSize() 
+        -- reagentIcon:SetSize()
         reagentIcon:ClearAllPoints()
         reagentIcon:SetPoint('LEFT', reagent, 'LEFT', 0, 0)
 
@@ -701,7 +701,7 @@ function DFProfessionMixin:SetupDropdown()
                     local radioAll = subclassMenu:CreateRadio(ALL_SUBCLASSES, IsSelected, SetSelected, 0);
 
                     for k, v in ipairs(subClasses) do
-                        -- 
+                        --
                         local radio = subclassMenu:CreateRadio(v, IsSelected, SetSelected, k);
                     end
                 end
@@ -758,7 +758,7 @@ function DFProfessionMixin:SetupDropdown()
 
                     local radioAll = slotMenu:CreateRadio(ALL_INVENTORY_SLOTS, IsSelected, SetSelected, 0);
                     for k, v in ipairs(subInv) do
-                        -- 
+                        --
                         local radio = slotMenu:CreateRadio(v, IsSelected, SetSelected, k);
                     end
                 end
@@ -793,7 +793,7 @@ function DFProfessionMixin:SetupTabs()
 
         tab:SetAttribute('type', 'macro')
         tab:SetScript('PostClick', function(self, button, down)
-            --        
+            --
             -- DragonflightUICharacterTabMixin:Tab_OnClick(self, tabFrame)
         end)
 
@@ -952,7 +952,7 @@ function DFProfessionMixin:UpdateTabs()
         tab:SetText('***')
     end
 
-    -- 
+    --
     local prof5 = self.ProfessionTable['poison'];
     tab = tabs[5]
     if prof5 then
@@ -966,7 +966,7 @@ function DFProfessionMixin:UpdateTabs()
         tab:SetText('***')
     end
 
-    -- 
+    --
     local prof6 = self.ProfessionTable['beast'];
     tab = tabs[6]
     if prof6 then
@@ -980,7 +980,7 @@ function DFProfessionMixin:UpdateTabs()
         tab:SetText('***')
     end
 
-    -- 
+    --
     local prof7 = self.ProfessionTable['runeforging'];
     tab = tabs[7]
     if prof7 then
@@ -996,7 +996,7 @@ function DFProfessionMixin:UpdateTabs()
         tab:SetText('***')
     end
 
-    -- 
+    --
     local prof8 = nil;
     tab = tabs[8]
     if prof8 then
@@ -1056,7 +1056,7 @@ function DFProfessionMixin:SetupFavorite()
         fav.IsFavorite = isFavorite
         fav:SetChecked(isFavorite)
     end
-    -- fav:SetIsFavorite(false)  
+    -- fav:SetIsFavorite(false)
 
     local frame = self;
 
@@ -1182,7 +1182,7 @@ function DFProfessionMixin:SetCurrentProfession()
         nameLoc, _, _ = GetCraftDisplaySkillLine();
 
         if nameLoc then
-            -- normal 
+            -- normal
         else
             -- beast training
             -- nameLoc = GetCraftSkillLine(1)
@@ -1230,20 +1230,20 @@ function DFProfessionMixin:SetCurrentProfession()
     return nil;
 end
 
---[[ First Aid 	129										
-Blacksmithing	164	
-Leatherworking	165	
-Alchemy	171	
+--[[ First Aid 	129
+Blacksmithing	164
+Leatherworking	165
+Alchemy	171
 Herbalism	182
-Cooking	185	
+Cooking	185
 Mining	186
-Tailoring	197	
-Engineering	202	
-Enchanting	333	
+Tailoring	197
+Engineering	202
+Enchanting	333
 Fishing	356
-Skinning	393	
+Skinning	393
 Jewelcrafting 	755
-Inscription 	773	
+Inscription 	773
 Archeology 	794
  ]]
 
@@ -2247,7 +2247,7 @@ function DFProfessionFrameRecipeListMixin:OnEvent(event, ...)
 end
 
 function DFProfessionFrameRecipeListMixin:OnShow()
-    -- print('DFProfessionsRecipeListMixin:OnShow()')    
+    -- print('DFProfessionsRecipeListMixin:OnShow()')
     -- self:Refresh()
     -- EventRegistry:TriggerEvent("DFProfessionsRecipeListMixin.Event.OnRecipeSelected", self.selectedSkill, self);
 end
@@ -2566,7 +2566,7 @@ function DFProfessionFrameRecipeMixin:Init(node, hideCraftableCount)
     local skillType = recipeInfo.skillType
 
     if skillType == 'trivial' then
-        --       
+        --
         icon:Hide()
     elseif skillType == 'easy' then
         --

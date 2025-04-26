@@ -376,7 +376,7 @@ function DFSettingsListCheckboxContainerMixin:Init(node)
     self.Checkbox:UnregisterCallback('OnValueChanged', self)
     self.Checkbox:SetValue(elementData.get({elementData.key}), true);
     self.Checkbox:RegisterCallback('OnValueChanged', function(cb, checked)
-        -- print('OnValueChanged', checked) 
+        -- print('OnValueChanged', checked)
         elementData.set({elementData.key}, checked)
     end, self)
 
@@ -725,7 +725,7 @@ function DFSettingsListColorPickerMixin:Init(node)
             opacityFunc = nil,
             opacity = 1.0,
             cancelFunc = function(previousValues)
-                --          
+                --
                 local prevC = CreateColor(previousValues.r, previousValues.g, previousValues.b, previousValues.a)
                 elementData.set({elementData.key}, prevC:GenerateHexColorNoAlpha())
 
@@ -1019,7 +1019,7 @@ function DFSettingsListDropdownContainerMixin:Init(node)
         -- rootDescription:CreateDivider();
 
         -- __Button__
-        -- local button = rootDescription:CreateButton(tbl.text, tbl.func);     
+        -- local button = rootDescription:CreateButton(tbl.text, tbl.func);
         -- button:SetEnabled(not tbl.disabled);
         do
             -- print('~~~~~dropdownValues~~~~~')

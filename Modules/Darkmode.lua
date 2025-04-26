@@ -67,7 +67,7 @@ local generalOptions = {
         --     max = 5,
         --     bigStep = 0.1,
         --     order = 1
-        -- }   
+        -- }
         headerUnitframes = {
             type = 'header',
             name = L["UnitFramesName"],
@@ -305,7 +305,7 @@ function Module:UpdateMinimap(state)
     local c = CreateColorFromRGBHexString(state.minimapColor)
 
     -- minimapBorderTex:SetDesaturated(true)
-    -- minimapBorderTex:SetVertexColor(0.4, 0.4, 0.4)  
+    -- minimapBorderTex:SetVertexColor(0.4, 0.4, 0.4)
 
     minimapBorderTex:SetDesaturated(state.minimapDesaturate)
     minimapBorderTex:SetVertexColor(c:GetRGB())
@@ -397,7 +397,7 @@ function Module:UpdateUnitframe(state)
     if not f.DarkmodePlayerStatusHooked then
         f.DarkmodePlayerStatusHooked = true
         hooksecurefunc(unitModule, 'UpdatePlayerStatus', function()
-            --  
+            --
             local state = Module.db.profile.general
             Module:UpdatePlayerFrame(state)
         end)
@@ -408,7 +408,7 @@ function Module:UpdateUnitframe(state)
     if not f.DarkmodeTargetHooked then
         f.DarkmodeTargetHooked = true
         hooksecurefunc(unitModule, 'ChangeToT', function()
-            --  
+            --
             local state = Module.db.profile.general
             Module:UpdateTargetFrame(state)
         end)
@@ -423,11 +423,11 @@ function Module:UpdateUnitframe(state)
 
     -- focus
     if DF.Wrath then
-        --      
+        --
         if not f.DarkmodeFocusHooked then
             f.DarkmodeFocusHooked = true
             hooksecurefunc(unitModule, 'ChangeFocusToT', function()
-                --  
+                --
                 local state = Module.db.profile.general
                 Module:UpdateFocusFrame(state)
             end)
@@ -650,7 +650,7 @@ function Module:UpdateActionbar(state)
     end
 
     if true then
-        --   
+        --
         -- SetItemButtonDesaturated(MainMenuBarBackpackButton, state.actionbarDesaturate)
         -- SetItemButtonTextureVertexColor(MainMenuBarBackpackButton, state.actionbarR / 255, state.actionbarG / 255,
         --                                 state.actionbarB / 255)
@@ -666,13 +666,13 @@ function Module:UpdateActionbar(state)
         end
 
         if KeyRingButton and KeyRingButton.Border then
-            --       
+            --
             KeyRingButton.Border:SetDesaturated(state.actionbarDesaturate)
             KeyRingButton.Border:SetVertexColor(c:GetRGB())
         end
     end
 
-    -- XP/Repbar   
+    -- XP/Repbar
     local XPBar = unitModule.xpbar
     if XPBar and XPBar.Border then
         --
@@ -710,9 +710,9 @@ function Module:UpdateBuff(state)
             buff.DFIconBorder:SetVertexColor(c:GetRGB())
         end
     end
-    -- target 
+    -- target
     for i = 1, MAX_TARGET_BUFFS do
-        --   
+        --
         buff = _G['TargetFrameBuff' .. i];
         if buff and buff.DFIconBorder then
             --
@@ -720,10 +720,10 @@ function Module:UpdateBuff(state)
             buff.DFIconBorder:SetVertexColor(c:GetRGB())
         end
     end
-    -- focus 
+    -- focus
     if DF.Wrath then
         for i = 1, MAX_TARGET_BUFFS do
-            --   
+            --
             buff = _G['FocusFrameBuff' .. i];
             if buff and buff.DFIconBorder then
                 --
@@ -785,7 +785,7 @@ end
 local frame = CreateFrame('FRAME')
 
 function frame:OnEvent(event, arg1, arg2, arg3)
-    -- print('event', event) 
+    -- print('event', event)
     if event == 'MINIMAP_PING' then
         --
         Module.HandlePing(arg1, arg2, arg3)

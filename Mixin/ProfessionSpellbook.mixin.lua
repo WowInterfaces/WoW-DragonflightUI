@@ -182,8 +182,8 @@ local function UpdateProfessionButton(self)
 
     -- print('---', skillType, spellID, data.nameLoc)
 
-    -- self:SetAttribute("_onclick", [[      
-    --     print('_onclick') 
+    -- self:SetAttribute("_onclick", [[
+    --     print('_onclick')
 
     --     if (IsModifiedClick('CHATLINK')) then
     --         ChatEdit_InsertLink(self.DFNameLoc)
@@ -311,7 +311,7 @@ function DragonFlightUIProfessionSpellbookMixin:FormatProfession(frame, data)
         -- 	UIFrameFlashStop(frame.SpellButton1.Flash);
         -- end
     else
-        -- 
+        --
         -- print('FormatProfession ELSE', frame:GetName())
         frame.missingHeader:Show();
         frame.missingText:Show();

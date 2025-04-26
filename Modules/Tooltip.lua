@@ -617,7 +617,7 @@ function Module:HookDefaultAnchor()
             if focused == WorldFrame or (DF.Era and not focused) then
                 -- units etc
                 self:ClearAllPoints();
-                self:SetOwner(parent, state.mouseAnchor, state.mouseX, state.mouseY); -- TODO config           
+                self:SetOwner(parent, state.mouseAnchor, state.mouseX, state.mouseY); -- TODO config
                 return;
             end
         end

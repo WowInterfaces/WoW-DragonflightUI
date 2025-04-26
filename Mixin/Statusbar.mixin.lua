@@ -135,7 +135,7 @@ function DragonflightUIXPBarMixin:SetupTooltip()
         end
 
         if DF.Era then
-            -- 
+            --
             GameTooltip:AddDoubleLine(' ')
             local questXPInfo = DragonflightUIMixin:GetCompletedQuestsAndXP();
 
@@ -314,7 +314,7 @@ function DragonflightUIRepBarMixin:OnEvent(event, arg1)
             -- was collapsed and needs to be shown now
             self:Update()
         elseif watchedName and not name then
-            -- was shown but needs to be collapsed 
+            -- was shown but needs to be collapsed
             self:Update()
         else
             self:UpdateBar()

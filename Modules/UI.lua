@@ -141,7 +141,7 @@ end
 local frame = CreateFrame('FRAME')
 
 function frame:OnEvent(event, arg1, ...)
-    -- print('event', event, arg1, ...)   
+    -- print('event', event, arg1, ...)
     if event == 'INSPECT_READY' then
         -- print('INSPECT_READY')
         local db = Module.db.profile.first
@@ -152,7 +152,7 @@ function frame:OnEvent(event, arg1, ...)
             DragonflightUIMixin:ChangeInspectFrame()
 
             if InspectFrame and not InspectFrame.DFTacoTipHooked then
-                --    
+                --
                 Module:FuncOrWaitframe('TacoTip', function()
                     DF.Compatibility:TacoTipInspect()
                 end)
@@ -474,14 +474,14 @@ function Module:ChangeFrames()
         --
         -- DragonflightUIMixin:ChangeSpellbookEra()
         -- DragonflightUIMixin:SpellbookEraAddTabs()
-        -- DragonflightUIMixin:SpellbookEraProfessions()  
+        -- DragonflightUIMixin:SpellbookEraProfessions()
         --[[ DragonflightUIMixin:ChangeCharacterFrameEra()
         Module:FuncOrWaitframe('Blizzard_EngravingUI', function()
             EngravingFrame:SetPoint('TOPLEFT', CharacterFrame, 'TOPRIGHT', 9, -75)
         end)
         Module:FuncOrWaitframe('CharacterStatsClassic', function()
             DF.Compatibility:CharacterStatsClassic()
-        end) 
+        end)
         Module:FuncOrWaitframe('TacoTip', function()
             DF.Compatibility:TacoTipCharacter()
         end) ]]
@@ -551,7 +551,7 @@ end
 function Module:UpdateTradeskills()
     do
         local loaded, reason = LoadAddOn('Blizzard_TradeSkillUI')
-        -- print('--', loaded, reason)    
+        -- print('--', loaded, reason)
     end
     do
         local loaded, reason = LoadAddOn('Blizzard_CraftUI')
@@ -691,7 +691,7 @@ function Module:ChangeBags()
         end) ]]
 
         hooksecurefunc('ManageBackpackTokenFrame', function(backpack)
-            --   
+            --
             local point, relativeTo, relativePoint, xOfs, yOfs = BackpackTokenFrame:GetPoint(1)
 
             if relativeTo then
@@ -702,7 +702,7 @@ function Module:ChangeBags()
         end)
 
         do
-            --    
+            --
             ContainerFrame1.CONTAINER_OFFSET_X_DF = 5
             ContainerFrame1.CONTAINER_OFFSET_Y_DF = 95
 

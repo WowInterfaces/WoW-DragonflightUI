@@ -369,10 +369,10 @@ function DFEditModeSystemSelectionBaseMixin:OnLoad()
             -- self:SetFrameLevel(self.Prio or 1000)
 
             if self.ModuleRef then
-                --            
+                --
                 local db = self.ModuleRef.db.profile[self.ModuleSub]
                 if db then db.EditModeActive = true; end
-                -- 
+                --
                 if self.ShowFunction then
                     self.ShowFunction();
                 else
@@ -387,7 +387,7 @@ function DFEditModeSystemSelectionBaseMixin:OnLoad()
                 self.parent:Hide()
             end
             if self.ModuleRef then
-                --            
+                --
                 local db = self.ModuleRef.db.profile[self.ModuleSub]
                 if db then db.EditModeActive = false; end
                 -- self.ModuleRef:ApplySettings(self.ModuleSub or false)
@@ -411,7 +411,7 @@ function DFEditModeSystemSelectionBaseMixin:OnLoad()
             local state = db.advanced
 
             if state[self.AdvancedName] then
-                -- 
+                --
                 self:ShowHighlighted()
             else
                 -- deactivated ~> dont change
@@ -420,7 +420,7 @@ function DFEditModeSystemSelectionBaseMixin:OnLoad()
     end, self)
 
     -- self:SetMovable(true)
-    -- self:EnableMouse(true)      
+    -- self:EnableMouse(true)
     self:RegisterForDrag("LeftButton")
     -- self:SetClampedToScreen(true) --TODO
 end
@@ -814,7 +814,7 @@ function DFEditModeSystemSelectionBaseMixin:RegisterOptions(data)
     local extraH = 0;
     local extraElementH = 0;
     if data.extra then
-        --  
+        --
         local extraData = {name = data.name, sub = data.sub, default = data.default, hideDefault = true}
 
         local extraOptions = {
@@ -900,7 +900,7 @@ function DFEditModeSystemSelectionMouseOverCheckerMixin:CycleFrames()
     local nextFrame;
     for k, v in ipairs(self.OverTable) do
         if v == self.EditModeRef.SelectedFrame then
-            --   
+            --
             nextFrame = self.OverTable[k + 1] or self.OverTable[1]
         end
         -- v:SetFrameLevel(999)
@@ -932,7 +932,7 @@ function DFEditModeSystemSelectionMouseOverCheckerMixin:UpdateMouseover()
     for k, v in ipairs(self.EditModeRef.SelectionFrames) do
         --
         if v:IsMouseOver() then
-            -- print('~over: ', v:GetName())            
+            -- print('~over: ', v:GetName())
             table.insert(overTable, v)
         end
     end

@@ -8,7 +8,7 @@ DragonflightUIMixin = {}
 local base = 'Interface\\Addons\\DragonflightUI\\Textures\\UI\\'
 
 function DragonflightUIMixin:UIPanelCloseButton(btn)
-    -- print('DragonflightUIMixin:UIPanelCloseButton(btn)', btn:GetName())  
+    -- print('DragonflightUIMixin:UIPanelCloseButton(btn)', btn:GetName())
     local tex = base .. 'redbutton2x'
 
     btn:SetSize(24, 24)
@@ -30,7 +30,7 @@ function DragonflightUIMixin:UIPanelCloseButton(btn)
     highlight:SetTexCoord(0.449219, 0.589844, 0.0078125, 0.304688)
 end
 
---[[ 
+--[[
 ["Interface/Buttons/redbutton2x"]={
     ["RedButton-Condense"]={36, 38, 0.00390625, 0.144531, 0.0078125, 0.304688, false, false, "1x"},
     ["RedButton-Condense-disabled"]={36, 38, 0.00390625, 0.144531, 0.320312, 0.617188, false, false, "1x"},
@@ -48,7 +48,7 @@ end
 } ]]
 
 function DragonflightUIMixin:MaximizeMinimizeButtonFrameTemplate(btn)
-    -- print('DragonflightUIMixin:MaximizeMinimizeButtonFrameTemplate(btn)', btn:GetName())  
+    -- print('DragonflightUIMixin:MaximizeMinimizeButtonFrameTemplate(btn)', btn:GetName())
     local tex = base .. 'redbutton2x'
 
     btn:SetSize(24, 24)
@@ -122,7 +122,7 @@ function DragonflightUIMixin:ChangeBag(frame)
     port:SetDrawLayer('OVERLAY', 5)
 
     local newPort = frame:CreateTexture('DFPortrait')
-    -- newPort:SetTexture('Interface\\Addons\\DragonflightUI\\Textures\\bigbag')        
+    -- newPort:SetTexture('Interface\\Addons\\DragonflightUI\\Textures\\bigbag')
     newPort:SetTexture(133633)
     newPort:SetSize(36, 36)
     newPort:SetPoint('TOPLEFT', frame, 'TOPLEFT', -4, 1)
@@ -202,7 +202,7 @@ function DragonflightUIMixin:ChangeBag(frame)
     end
 end
 
---[[ 
+--[[
 ["Interface/ContainerFrame/BagsItemBankSlot2x"]={
     ["bags-item-bankslot64"]={64, 64, 0, 1, 0, 1, true, true, "1x"},
   }, -- Interface/ContainerFrame/BagsItemBankSlot2x
@@ -329,7 +329,7 @@ function DragonglightUIGuildBankSearchMixin:UpdateFiltered()
                 itemButton = column['Button' .. i]
                 buttonID = (c - 1) * 14 + i
                 texture, itemCount, locked, isFiltered, quality = GetGuildBankItemInfo(id, buttonID)
-                -- print(buttonID, '|', texture, itemCount, locked, isFiltered, quality)     
+                -- print(buttonID, '|', texture, itemCount, locked, isFiltered, quality)
                 if not texture then
                     -- no item
                     itemButton.searchOverlay:Hide();
@@ -349,12 +349,12 @@ function DragonglightUIGuildBankSearchMixin:UpdateFiltered()
             for i = 1, 14 do
                 buttonID = (c - 1) * 14 + i
                 texture, itemCount, locked, isFiltered, quality = GetGuildBankItemInfo(id, buttonID)
-                -- print(buttonID, '|', texture, itemCount, locked, isFiltered, quality)  
+                -- print(buttonID, '|', texture, itemCount, locked, isFiltered, quality)
 
                 if not texture then
-                    -- no item              
+                    -- no item
                 elseif (isFiltered) then
-                    -- filtered                 
+                    -- filtered
                 else
                     -- searched item
                     hasItem = true
@@ -383,7 +383,7 @@ function DragonflightUIMixin:AddGuildbankSearch()
     frame:SetPoint('TOPRIGHT', GuildBankFrame, 'TOPRIGHT', -48, -40)
 
     for i = 1, MAX_GUILDBANK_TABS do
-        --   
+        --
         -- _G['GuildBankTab' .. i].Button:UnregisterEvent('INVENTORY_SEARCH_UPDATE')
         local tab = _G['GuildBankTab' .. i]
         tab.Button:SetID(i)
@@ -431,7 +431,7 @@ function DragonflightUIMixin:ChangeTradeskillFrameCata(frame)
                 -- child:SetTexture(base .. 'UI-QuestLogDualPane-Left')
             elseif tex == 309666 then
                 -- <Texture file="Interface\QuestFrame\UI-QuestLogDualPane-RIGHT">
-                -- child:Hide()          
+                -- child:Hide()
                 -- child:SetTexture(base .. 'ui-questlogdualpane-right')
             end
         end
@@ -454,7 +454,7 @@ function DragonflightUIMixin:ChangeTrainerFrame()
     local port
 
     for k, child in ipairs(regions) do
-        --     
+        --
         if child:GetObjectType() == 'Texture' then
             local layer, layerNr = child:GetDrawLayer()
             if layer == 'ARTWORK' then child:Hide() end
@@ -590,7 +590,7 @@ function DragonflightUIMixin:ChangeTrainerFrame()
         -- ClassTrainerExpandTabMiddle:SetAlpha(0)
 
         for k, child in ipairs(expandRegions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then child:Hide() end
         end
 
@@ -600,7 +600,7 @@ function DragonflightUIMixin:ChangeTrainerFrame()
 
         -- ClassTrainerSkill1:GetSize()  [1]=323.00003051758, [2]=15.99998664856
 
-        local oldTrainerSkillsDisplayed = CLASS_TRAINER_SKILLS_DISPLAYED -- default: 11     
+        local oldTrainerSkillsDisplayed = CLASS_TRAINER_SKILLS_DISPLAYED -- default: 11
         local newTrainerSkillsDisplayed = 25
 
         local deltaY = -1
@@ -615,7 +615,7 @@ function DragonflightUIMixin:ChangeTrainerFrame()
         local scrollRegions = {scroll:GetRegions()}
 
         for k, child in ipairs(scrollRegions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then child:Hide() end
         end
         ClassTrainerListScrollFrameScrollBar:SetPoint('TOPLEFT', scroll, 'TOPRIGHT', 6 + 4, -16)
@@ -725,7 +725,7 @@ function DragonflightUIMixin:ChangeTrainerFrame()
             if trainAll:IsMouseOver() and shouldShow then
                 local func = trainAll:GetScript("OnEnter")
                 if func then func(trainAll) end
-                -- trainAll:OnEnter(trainAll)             
+                -- trainAll:OnEnter(trainAll)
             end
         end)
 
@@ -746,7 +746,7 @@ function DragonflightUIMixin:ChangeDressupFrame()
     local port
 
     for k, child in ipairs(regions) do
-        --     
+        --
         if child:GetObjectType() == 'Texture' then
             local layer, layerNr = child:GetDrawLayer()
             if layer == 'ARTWORK' then child:Hide() end
@@ -784,6 +784,7 @@ function DragonflightUIMixin:ChangeDressupFrame()
 
     DressUpFrameBackgroundTopLeft:SetPoint('TOPLEFT', DressUpFrame, 'TOPLEFT', 19, -75)
 
+    -- Portrait
     do
         local port = DressUpFramePortrait
         port:SetSize(62, 62)
@@ -802,7 +803,7 @@ function DragonflightUIMixin:ChangeDressupFrame()
 
     DragonflightUIMixin:FrameBackgroundSolid(frame, true)
 
-    -- default -16 
+    -- default -16
     ShowUIPanel(frame)
     DressUpFrame:SetAttribute("UIPanelLayout-" .. "xoffset", 0);
     DressUpFrame:SetAttribute("UIPanelLayout-" .. "yoffset", 0);
@@ -840,7 +841,7 @@ function DragonflightUIMixin:ChangeInspectFrame()
         local regions = {InspectPaperDollFrame:GetRegions()}
 
         for k, child in ipairs(regions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then
                 local layer, layerNr = child:GetDrawLayer()
                 if layer == 'BORDER' then child:Hide() end
@@ -852,7 +853,7 @@ function DragonflightUIMixin:ChangeInspectFrame()
     if InspectPVPFrame then
         local regions = {InspectPVPFrame:GetRegions()}
         for k, child in ipairs(regions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then
                 local layer, layerNr = child:GetDrawLayer()
                 -- print(layer, layerNr, child:GetTexture())
@@ -871,7 +872,7 @@ function DragonflightUIMixin:ChangeInspectFrame()
     if InspectHonorFrame then
         local regions = {InspectHonorFrame:GetRegions()}
         for k, child in ipairs(regions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then
                 local layer, layerNr = child:GetDrawLayer()
                 -- print(layer, layerNr, child:GetTexture())
@@ -890,7 +891,7 @@ function DragonflightUIMixin:ChangeInspectFrame()
     if InspectTalentFrame then
         local regions = {InspectTalentFrame:GetRegions()}
         for k, child in ipairs(regions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then
                 local layer, layerNr = child:GetDrawLayer()
                 -- print(layer, layerNr, child:GetTexture())
@@ -917,7 +918,7 @@ function DragonflightUIMixin:ChangeInspectFrame()
             --
             local talent = _G['InspectTalentFrameTalent' .. i]
             talent:SetScript('OnEnter', function(self)
-                -- 
+                --
                 local selectedTab = PanelTemplates_GetSelectedTab(InspectTalentFrame) or InspectTalentFrame.talentTree;
                 local talentGroup = GetActiveTalentGroup(true, false);
                 -- print(talent:GetName(), selectedTab, talentGroup)
@@ -1048,7 +1049,7 @@ function DragonflightUIMixin:ChangeInspectFrame()
         end
 
         InspectFrame:HookScript('OnEvent', function(self, event, unit, ...)
-            --  
+            --
             -- print('hookEvent', self:GetName(), event, unit, ...)
             if event == 'INSPECT_READY' then
                 if InspectFrame and InspectFrame.unit then updateBackground(InspectFrame.unit) end
@@ -1116,7 +1117,7 @@ function DragonflightUIMixin:ChangeCharacterFrameEra()
         local regions = {f:GetRegions()}
 
         for k, child in ipairs(regions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then
                 local layer, layerNr = child:GetDrawLayer()
                 -- print(layer, layerNr, child:GetTexture())
@@ -1133,7 +1134,7 @@ function DragonflightUIMixin:ChangeCharacterFrameEra()
     if HonorFrame then
         local regions = {HonorFrame:GetRegions()}
         for k, child in ipairs(regions) do
-            --     
+            --
             if child:GetObjectType() == 'Texture' then
                 local layer, layerNr = child:GetDrawLayer()
                 -- print(layer, layerNr, child:GetTexture())
@@ -1252,7 +1253,7 @@ function DragonflightUIMixin:ChangeCharacterFrameEra()
             local tab = _G['CharacterFrameTab' .. i]
 
             if tab then
-                --         
+                --
                 DragonflightUIMixin:CharacterFrameTabButtonTemplate(tab)
                 tab.DFFirst = nil
                 tab.DFChangePoint = nil
@@ -1279,7 +1280,7 @@ function DragonflightUIMixin:ChangeCharacterFrameEra()
             end
         end
         hooksecurefunc('ToggleCharacter', function(panel)
-            --   
+            --
             updateTabs()
         end)
         _G['CharacterFrameTab2']:HookScript('OnShow', updateTabs)
@@ -1451,7 +1452,7 @@ function DragonflightUIMixin:ChangeCharacterFrameEra()
         if DF.Wrath then
             local regions = {ReputationFrame:GetRegions()}
             for k, child in ipairs(regions) do
-                --     
+                --
                 if child:GetObjectType() == 'Texture' then
                     local layer, layerNr = child:GetDrawLayer()
                     -- print(layer, layerNr, child:GetTexture())
@@ -1766,7 +1767,7 @@ function DragonflightUIMixin:ChangeTaxiFrame()
         pp:SetDrawLayer('OVERLAY', 7)
     end
 
-    -- default -16 
+    -- default -16
     -- ShowUIPanel(frame)
     -- frame:SetAttribute("UIPanelLayout-" .. "xoffset", 0);
     -- frame:SetAttribute("UIPanelLayout-" .. "yoffset", 0);
@@ -1816,7 +1817,7 @@ function DragonflightUIMixin:ChangeLootFrame()
 
     for k, child in ipairs(regions) do
         if child:GetObjectType() == 'FontString' and child:GetText() == ITEMS then
-            --             
+            --
             child:Hide()
         end
     end
@@ -1880,7 +1881,7 @@ function DragonflightUIMixin:ChangeQuestFrame()
         -- print('child:', child:GetName())
         if child:GetObjectType() == 'Texture' then
             -- child:SetTexture('')
-            -- print('child:', 'Texture', child:GetTexture(), child:GetWidth(), child:GetHeight())         
+            -- print('child:', 'Texture', child:GetTexture(), child:GetWidth(), child:GetHeight())
             child:Hide()
         end
     end
@@ -1892,7 +1893,7 @@ function DragonflightUIMixin:ChangeQuestFrame()
         -- print('child:', child:GetName())
         if child:GetObjectType() == 'Texture' then
             -- child:SetTexture('')
-            -- print('child:', 'Texture', child:GetTexture(), child:GetWidth(), child:GetHeight())         
+            -- print('child:', 'Texture', child:GetTexture(), child:GetWidth(), child:GetHeight())
             child:Hide()
         end
     end
@@ -1904,7 +1905,7 @@ function DragonflightUIMixin:ChangeQuestFrame()
         -- print('child:', child:GetName())
         if child:GetObjectType() == 'Texture' then
             -- child:SetTexture('')
-            -- print('child:', 'Texture', child:GetTexture(), child:GetWidth(), child:GetHeight())         
+            -- print('child:', 'Texture', child:GetTexture(), child:GetWidth(), child:GetHeight())
             child:Hide()
         end
     end
@@ -2012,7 +2013,7 @@ function DragonflightUIMixin:ChangeQuestFrame()
         pp:SetDrawLayer('OVERLAY', 7)
     end
 
-    -- default -16 
+    -- default -16
     ShowUIPanel(frame)
     frame:SetAttribute("UIPanelLayout-" .. "xoffset", 0);
     frame:SetAttribute("UIPanelLayout-" .. "yoffset", 0);
@@ -2212,7 +2213,7 @@ function DragonflightUIMixin:ChangeGossipFrame()
         pp:SetDrawLayer('OVERLAY', 7)
     end
 
-    -- default -16 
+    -- default -16
     ShowUIPanel(frame)
     frame:SetAttribute("UIPanelLayout-" .. "xoffset", 0);
     frame:SetAttribute("UIPanelLayout-" .. "yoffset", 0);
@@ -2460,7 +2461,7 @@ function DragonflightUIMixin:ChangeQuestLogFrameEra()
         local regionsE = {EmptyQuestLogFrame:GetRegions()}
 
         for k, child in ipairs(regionsE) do
-            --        
+            --
             if child:GetObjectType() == 'Texture' then child:Hide() end
         end
 
@@ -2595,7 +2596,7 @@ function DragonflightUIMixin:ChangeQuestLogFrameCata()
                 child:SetTexture(base .. 'UI-QuestLogDualPane-Left')
             elseif tex == 309666 then
                 -- <Texture file="Interface\QuestFrame\UI-QuestLogDualPane-RIGHT">
-                -- child:Hide()          
+                -- child:Hide()
                 child:SetTexture(base .. 'ui-questlogdualpane-right')
             end
         end
@@ -2628,7 +2629,7 @@ function DragonflightUIMixin:ChangeQuestLogFrameCata()
 
     DragonflightUIMixin:FrameBackgroundSolid(frame, true)
 
-    -- default -16 
+    -- default -16
     ShowUIPanel(frame)
     QuestLogFrame:SetAttribute("UIPanelLayout-" .. "xoffset", 0);
     QuestLogFrame:SetAttribute("UIPanelLayout-" .. "yoffset", 0);
@@ -2738,7 +2739,7 @@ function DragonflightUIMixin:ChangeTalentsEra()
     local port
 
     for k, child in ipairs(regions) do
-        --     
+        --
         if child:GetObjectType() == 'Texture' then
             local layer, layerNr = child:GetDrawLayer()
             -- print(layer, layerNr, child:GetTexture())
@@ -2867,7 +2868,7 @@ function DragonflightUIMixin:ChangeSpellbookEra()
     local port
 
     for k, child in ipairs(regions) do
-        --     
+        --
         if child:GetObjectType() == 'Texture' then
             local layer, layerNr = child:GetDrawLayer()
             -- print(layer, layerNr, child:GetTexture())
@@ -2964,7 +2965,7 @@ function DragonflightUIMixin:ChangeSpellbookEra()
         bg:SetPoint('BOTTOMRIGHT', frame, 'BOTTOMRIGHT', -2, 2)
         bg:SetDrawLayer('BACKGROUND', -6)
         -- TODO: bugged?
-        -- bg:SetVertTile(true) 
+        -- bg:SetVertTile(true)
         -- bg:SetHorizTile(true)
     end
 
@@ -3038,8 +3039,8 @@ function DragonflightUIMixin:ChangeSpellbookEra()
                     if child:GetObjectType() == 'Texture' then
                         local tex = child:GetTexture()
                         if tex == 136831 then
-                            -- 
-                            -- child:Hide() 
+                            --
+                            -- child:Hide()
                             child:SetTexture(base .. 'spellbook-skilllinetab')
                         end
                     end
@@ -3075,7 +3076,7 @@ function DragonflightUIMixin:ChangeSpellbookEra()
         local tab = _G['SpellBookFrameTabButton' .. i]
 
         if tab then
-            --         
+            --
             -- DragonflightUIMixin:CharacterFrameTabButtonTemplate(tab)
             -- if i > 1 then tab.DFChangePoint = true end
             if i == 1 then
@@ -3139,7 +3140,7 @@ function DragonflightUIMixin:SpellbookEraAddTabs()
         tab:SetAttribute('type', 'macro')
 
         tab:SetScript('PostClick', function(self, button, down)
-            --        
+            --
             DragonflightUICharacterTabMixin:Tab_OnClick(self, tabFrame)
         end)
 
@@ -3238,12 +3239,12 @@ function DragonflightUIMixin:SpellbookEraProfessions()
 
     frame.buttonShow = CreateFrame("Button", "DragonflightUISpellbookProfessionFrameShowButton", frame,
                                    "SecureHandlerClickTemplate");
-    frame.buttonShow:SetAttribute("_onclick", [[      
+    frame.buttonShow:SetAttribute("_onclick", [[
         local frame = self:GetFrameRef("ProfessionFrame");
-        frame:Show();    
-        
+        frame:Show();
+
         -- local tabs = self:GetFrameRef("TabsFrame");
-        -- tabs:Hide();   
+        -- tabs:Hide();
     ]]);
     frame.buttonShow:SetFrameRef("ProfessionFrame", frame)
     -- frame.buttonShow:SetFrameRef("TabsFrame", SpellBookSideTabsFrame)
@@ -3254,12 +3255,12 @@ function DragonflightUIMixin:SpellbookEraProfessions()
 
     frame.buttonHide = CreateFrame("Button", "DragonflightUISpellbookProfessionFrameHideButton", frame,
                                    "SecureHandlerClickTemplate");
-    frame.buttonHide:SetAttribute("_onclick", [[      
+    frame.buttonHide:SetAttribute("_onclick", [[
         local frame = self:GetFrameRef("ProfessionFrame");
-        frame:Hide();   
-        
+        frame:Hide();
+
         -- local tabs = self:GetFrameRef("TabsFrame");
-        -- tabs:Show();    
+        -- tabs:Show();
     ]]);
     frame.buttonHide:SetFrameRef("ProfessionFrame", frame)
     -- frame.buttonHide:SetFrameRef("TabsFrame", SpellBookSideTabsFrame)
@@ -3345,7 +3346,7 @@ function DragonflightUIMixin:SpellbookEraProfessions()
         bg:SetPoint('BOTTOMRIGHT', frame, 'BOTTOMRIGHT', -2, 2)
         bg:SetDrawLayer('BACKGROUND', -6)
         -- TODO: bugged?
-        -- bg:SetVertTile(true) 
+        -- bg:SetVertTile(true)
         -- bg:SetHorizTile(true)
     end
 
@@ -3366,7 +3367,7 @@ function DragonflightUIMixin:ChangeWrathPVPFrame()
     local regions = {frame:GetRegions()}
 
     for k, child in ipairs(regions) do
-        --     
+        --
         if child:GetObjectType() == 'Texture' then
             local layer, layerNr = child:GetDrawLayer()
             -- print(layer, layerNr, child:GetTexture())
@@ -3510,7 +3511,7 @@ function DragonflightUIMixin:ButtonFrameTemplateNoPortrait(frame)
     end
 end
 
---[[ 
+--[[
 ["Interface/FrameGeneral/UIFrameMetal2x"]={
     ["UI-Frame-Metal-CornerBottomLeft"]={32, 16, 0.298828, 0.423828, 0.298828, 0.423828, false, false, "2x"},
     ["UI-Frame-Metal-CornerBottomRight"]={32, 16, 0.427734, 0.552734, 0.298828, 0.423828, false, false, "2x"},
@@ -3528,7 +3529,7 @@ end
     ["!UI-Frame-Metal-EdgeLeft"]={75, 8, 0.00195312, 0.294922, 0, 1, false, true, "2x"},
     ["!UI-Frame-Metal-EdgeRight"]={75, 8, 0.298828, 0.591797, 0, 1, false, true, "2x"},
   }, -- Interface/FrameGeneral/UIFrameMetalVertical2x
-  
+
     ["Interface/FrameGeneral/UIFrameBackground"]={
     ["UIFrameBackground-NineSlice-CornerBottomLeft"]={16, 16, 0.015625, 0.265625, 0.03125, 0.53125, false, false, "1x"},
     ["UIFrameBackground-NineSlice-CornerBottomRight"]={16, 16, 0.296875, 0.546875, 0.03125, 0.53125, false, false, "1x"},
@@ -3628,7 +3629,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
         te:SetTexture(tex)
         te:SetTexCoord(0, 1, 0.00390625, 0.589844)
         te:SetSize(32, 74)
-        -- local point, relativeTo, relativePoint, xOfs, yOfs = te:GetPoint(1)   
+        -- local point, relativeTo, relativePoint, xOfs, yOfs = te:GetPoint(1)
         te:ClearAllPoints()
         te:SetPoint('TOPLEFT', _G[name .. 'TopLeftCornerDF'], 'TOPRIGHT', 0, 0)
         te:SetPoint('TOPRIGHT', _G[name .. 'TopRightCorner'], 'TOPLEFT', 0, 0)
@@ -3678,7 +3679,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
         local tab = _G[name .. 'TabButton' .. i]
 
         if tab then
-            --         
+            --
             DragonflightUIMixin:CharacterFrameTabButtonTemplate(tab)
 
             if i > 1 then tab.DFChangePoint = true end
@@ -3690,7 +3691,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
         local tab = _G[name .. 'Tab' .. i]
 
         if tab and name ~= 'MacroFrame' then
-            --         
+            --
             DragonflightUIMixin:CharacterFrameTabButtonTemplate(tab)
 
             if i == 1 then
@@ -3708,7 +3709,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
                 local tab = _G['SpellBookFrameTabButton' .. i]
 
                 if tab then
-                    --        
+                    --
                     local text = _G['SpellBookFrameTabButton' .. i .. 'Text']
                     tab.DFTabWidth = math.max(text:GetWrappedWidth() + 16, 78)
                     -- DragonflightUIMixin:TabResize(tab)
@@ -3733,8 +3734,8 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
                 if child:GetObjectType() == 'Texture' then
                     local tex = child:GetTexture()
                     if tex == 136831 then
-                        -- 
-                        -- child:Hide() 
+                        --
+                        -- child:Hide()
                         child:SetTexture(base .. 'spellbook-skilllinetab')
                     end
                 end
@@ -3755,7 +3756,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
         end) ]]
 
         hooksecurefunc('ToggleSpellBook', function(panel)
-            --         
+            --
             if panel == 'spell' then
                 _G[name .. 'TabButton1']:Disable()
             elseif panel == 'professions' then
@@ -3792,7 +3793,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
             end
         end
         hooksecurefunc('ToggleCharacter', function(panel)
-            --   
+            --
             updateTabs()
         end)
         _G[name .. 'Tab' .. 2]:HookScript('OnShow', updateTabs)
@@ -3807,7 +3808,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
             end
         end
         hooksecurefunc('PlayerTalentFrame_UpdateTabs', function()
-            --  
+            --
             local lastElem = nil
             for i = 1, NUM_TALENT_FRAME_TABS do
                 tab = _G["PlayerTalentFrameTab" .. i];
@@ -3824,12 +3825,12 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
             end
         end)
     elseif name == 'CollectionsJournal' then
-        --   
+        --
         for i = 1, 5 do
             local tab = _G[name .. 'Tab' .. i]
 
             if tab then
-                --        
+                --
                 local text = _G[name .. 'Tab' .. i .. 'Text']
                 tab.DFTabWidth = math.max(text:GetWrappedWidth() + 16, 78)
                 DragonflightUIMixin:TabResize(tab)
@@ -3837,7 +3838,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
         end
         -- btn:SetWidth(btn.DFTabWidth or 78)
     elseif name == 'CommunitiesFrame' then
-        --   
+        --
         local bg = _G['CommunitiesFrameBg']
         if bg then
             --
@@ -3855,7 +3856,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
             te:SetPoint('TOPRIGHT', _G[name .. 'TopRightCorner'], 'TOPLEFT', 0, 0)
         end
         frame:HookScript('OnShow', function()
-            -- 
+            --
             fixTop()
         end)
 
@@ -3902,15 +3903,15 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
         newRaid.DFTabWidth = math.max(newRaid:GetFontString():GetWrappedWidth() + 16, 78)
         DragonflightUIMixin:CharacterFrameTabButtonTemplate(newRaid, true)
     elseif name == 'MacroFrame' then
-        --  
+        --
         local children = {frame:GetRegions()}
 
         for k, child in ipairs(children) do
             if child:GetObjectType() == 'Texture' then
                 local tex = child:GetTexture()
                 if tex == 136377 then
-                    -- 
-                    -- child:Hide() 
+                    --
+                    -- child:Hide()
                     -- child:SetTexture(base .. 'spellbook-skilllinetab')
                     child:SetSize(62, 62)
                     child:ClearAllPoints()
@@ -3938,7 +3939,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
                     end
 
                     if i == 4 then
-                        -- raid 
+                        -- raid
                         -- tab:SetText('Schlachtzug')
                         local text = _G['FriendsFrameTab' .. i .. 'Text']
                         -- print('ss', text:GetWrappedWidth())
@@ -3964,7 +3965,7 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
                 end)
             end
 
-            -- guild 
+            -- guild
 
             local originalGuild = _G[name .. 'Tab' .. 3];
 
@@ -4099,8 +4100,8 @@ function DragonflightUIMixin:PortraitFrameTemplate(frame)
             if child:GetObjectType() == 'Texture' then
                 local tex = child:GetTexture()
                 if tex == 136382 then
-                    -- 
-                    -- child:Hide() 
+                    --
+                    -- child:Hide()
                     -- child:SetTexture(base .. 'spellbook-skilllinetab')
                     child:SetSize(62, 62)
                     child:ClearAllPoints()
@@ -4179,7 +4180,7 @@ function DragonflightUIMixin:CharacterFrameTabButtonTemplate(frame, hideDisabled
 
         function frame:SetNormal(normal, keepSize)
             if normal then
-                --   
+                --
                 if not keepSize then frame:SetHeight(32) end
 
                 left:SetSize(35, 36)
@@ -4323,7 +4324,7 @@ function DragonflightUIMixin:BottomEncounterTierTabTemplate(frame)
 
         local setNormal = function(normal, keepSize)
             if normal then
-                --   
+                --
                 frame:SetHeight(32)
 
                 left:SetSize(35, 36)
