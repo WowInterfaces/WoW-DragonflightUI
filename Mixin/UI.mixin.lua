@@ -780,9 +780,128 @@ function DragonflightUIMixin:ChangeDressupFrame()
         -- inset:SetFrameLevel(1)
 
         _G[inset:GetName() .. 'Bg']:Hide()
+        DressUpModelFrame.Inset = inset
     end
 
     DressUpFrameBackgroundTopLeft:SetPoint('TOPLEFT', DressUpFrame, 'TOPLEFT', 19, -75)
+
+    -- UpdateFrameSize
+    do
+        local function UpdateFrameSize(frame, ext_size)
+            local width = frame:GetWidth() + ext_size
+            local height = frame:GetHeight() + ext_size
+
+            frame:SetSize(width, height)
+        end
+
+        local up_size = 0
+        UpdateFrameSize(frame, up_size)
+        UpdateFrameSize(DressUpModelFrame, up_size)
+    end
+
+    -- Zooming and panning
+    do
+        -- Reset side dressup when reset button clicked
+        SideDressUpModelResetButton:HookScript("OnClick", function()
+            SideDressUpModel.rotation = 0
+            SideDressUpModel:SetRotation(0)
+            SideDressUpModel:SetPosition(0, 0, -0.1)
+            SideDressUpModel.zoomLevel = 0
+            SideDressUpModel:SetPortraitZoom(0)
+            SideDressUpModel:RefreshCamera()
+        end)
+    end
+
+    -- Buttons
+    do
+        DressUpFrame.CloseButton = DressUpFrameCloseButton
+        DressUpFrame.CancelButton = DressUpFrameCancelButton
+
+        -- Function to create a button
+        local function CreateButton(name, parent, label, width, height)
+            local btn = CreateFrame("Button", name, parent, "UIPanelButtonTemplate")
+            btn:SetSize(width, height)
+            btn:SetHitRectInsets(0, 0, 0, 0)
+            btn:SetFrameLevel(3)
+
+            -- Create fontstring so the button can be sized correctly
+            btn.f = btn:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+            btn.f:SetText(label)
+            if width > 0 then
+                -- Button should have static width
+                btn:SetWidth(width)
+            else
+                -- Button should have variable width
+                btn:SetWidth(btn.f:GetStringWidth() + 20)
+            end
+            return btn
+        end
+
+        local function SetButton(btn, text, tip)
+            if text and text ~= "" then
+                btn:SetText(text)
+                btn:SetWidth(btn:GetFontString():GetStringWidth() + 20)
+            end
+            btn:HookScript("OnEnter", function()
+                GameTooltip:SetOwner(btn, "ANCHOR_NONE")
+                GameTooltip:SetPoint("BOTTOM", btn, "TOP", 0, 10)
+                if tip and tip ~= "" then
+                    GameTooltip:SetText(tip, nil, nil, nil, nil, true)
+                end
+            end)
+            btn:HookScript("OnLeave", GameTooltip_Hide)
+            return btn
+        end
+
+        -- Close
+        SetButton(DressUpFrameCancelButton, "", "Close")
+        DressUpFrameCancelButton:ClearAllPoints()
+        DressUpFrameCancelButton:SetPoint("BOTTOMRIGHT", DressUpFrame, "BOTTOMRIGHT", -20, 20)
+
+        -- Reset
+        SetButton(DressUpFrameResetButton, "", "Reset")
+
+        -- Nude
+        local nude = CreateButton("DressUpNudeBtn", DressUpFrameResetButton, "N", 80, 22)
+        -- nude:ClearAllPoints()
+        nude:SetPoint("RIGHT", DressUpFrameResetButton, "LEFT", 0, 0)
+        nude:SetScript("OnClick", function()
+            DressUpFrame.DressUpModel:Undress()
+        end)
+        DressUpFrame.NudeButton = SetButton(nude, "N", "Remove all items")
+
+        -- Show me
+        local showme = CreateButton("DressUpShowMeBtn", DressUpFrameResetButton, "M", 80, 22)
+        showme:SetPoint("RIGHT", nude, "LEFT", 0, 0)
+        showme:SetScript("OnClick", function()
+            local playerActor = DressUpFrame.DressUpModel
+            playerActor:SetUnit("player")
+            -- Set animation
+            playerActor:SetAnimation(0)
+            -- C_Timer.After(0.1,function()
+            --     playerActor:SetAnimation(animTable[math.floor(LeaPlusCB["DressupAnim"]:GetValue() + 0.5)], 0, 1, 1)
+            -- end)
+        end)
+        DressUpFrame.ShowmeButton = SetButton(showme, "M", "Show me")
+
+        -- Target
+        local target = CreateButton("DressUpTargetBtn", DressUpFrameResetButton, "T", 80, 22)
+        target:SetPoint("RIGHT", showme, "LEFT", 0, 0)
+        target:SetScript("OnClick", function()
+            if UnitIsPlayer("target") then
+                local playerActor = DressUpFrame.DressUpModel
+                if playerActor then
+                    playerActor:SetUnit("target")
+                    -- Set animation
+                    playerActor:SetAnimation(0)
+                    -- C_Timer.After(0.1,function()
+                    --     playerActor:SetAnimation(animTable[math.floor(LeaPlusCB["DressupAnim"]:GetValue() + 0.5)], 0, 1, 1)
+                    -- end)
+                end
+            end
+        end)
+        DressUpFrame.TargetButton = SetButton(target, "T", "Show target model")
+    end
 
     -- Portrait
     do
