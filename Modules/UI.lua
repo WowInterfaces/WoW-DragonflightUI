@@ -322,6 +322,7 @@ function Module:ApplySettings()
         elseif DF.Wrath then
             DragonflightUIMixin:ChangeCharacterFrameEra()
             DragonflightUIMixin:EnhanceCharacterFrame()
+            C_CVar.SetCVar("equipmentManager", "0")
         elseif DF.Era then
             DragonflightUIMixin:ChangeCharacterFrameEra()
             Module:FuncOrWaitframe('Blizzard_EngravingUI', function()
@@ -349,6 +350,9 @@ function Module:ApplySettings()
             DF.Compatibility:MerInspect()
         end)
     elseif not db.changeCharacterframe and Module.CharacterHooked then
+        if DF.Wrath and not DF.Cata then
+            C_CVar.SetCVar("equipmentManager", "1")
+        end
         DF:Print("'Change Characterframe' was deactivated, but Characterframe were already modified, please /reload.")
     end
 
