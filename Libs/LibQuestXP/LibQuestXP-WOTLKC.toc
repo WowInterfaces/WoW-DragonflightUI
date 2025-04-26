@@ -1,4 +1,4 @@
-## Interface: 30403
+## Interface: 30404
 ## Title: LibQuestXP
 ## Author: MrFox
 ## Email: gyussz@live.com
