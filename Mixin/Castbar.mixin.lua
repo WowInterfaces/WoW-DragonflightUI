@@ -565,7 +565,7 @@ function DragonFlightUICastbarMixin:UpdateEditModeStyle(editmode)
     self:SetMinMaxValues(0, 10);
     self:SetValue(6.9)
     self.value = self:GetValue()
-    _, self.maxValue = self:GetMinMaxValues()
+    self.maxValue = select(2, self:GetMinMaxValues())
 
     self:SetStatusBarDesaturated(false)
     self:SetStatusBarTexture(standardRef)
