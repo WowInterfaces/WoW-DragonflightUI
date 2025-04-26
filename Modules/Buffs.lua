@@ -14,7 +14,7 @@ local defaults = {
             customAnchorFrame = '',
             anchor = 'TOPRIGHT',
             anchorParent = 'TOPLEFT',
-            x = -55,
+            x = -65,
             y = -13,
             expanded = true,
             -- Visibility
@@ -35,10 +35,10 @@ local defaults = {
             scale = 1,
             anchorFrame = 'MinimapCluster',
             customAnchorFrame = '',
-            anchor = 'TOPRIGHT',
-            anchorParent = 'TOPLEFT',
-            x = -55,
-            y = -13 - 110,
+            anchor = 'BOTTOMRIGHT',
+            anchorParent = 'BOTTOMLEFT',
+            x = -65,
+            y = -13 - 52,
             -- Visibility
             showMouseover = false,
             hideAlways = false,

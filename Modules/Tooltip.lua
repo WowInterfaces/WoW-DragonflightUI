@@ -29,13 +29,13 @@ local defaults = {
             statusbarHeight = 9,
             -- spell
             anchorSpells = true,
-            showSpellID = true,
-            showSpellSource = true,
+            showSpellID = false,
+            showSpellSource = false,
             showSpellIconID = false,
-            showSpellIcon = true,
+            showSpellIcon = false,
             showStealable = false,
             -- item
-            showItemQuality = true,
+            showItemQuality = false,
             showItemQualityBackdrop = false,
             showItemStackCount = false,
             showItemID = false,

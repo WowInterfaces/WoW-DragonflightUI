@@ -15,11 +15,11 @@ local defaults = {
         first = {
             changeBag = true,
             itemcolor = true,
-            changeCharacterframe = true,
+            changeCharacterframe = false,
             changeSpellBook = true,
             changeSpellBookProfessions = true,
-            changeInspect = true,
-            changeTradeskill = true,
+            changeInspect = false,
+            changeTradeskill = false,
             changeTrainer = true,
             changeTalents = true,
             questLevel = true
@@ -28,8 +28,8 @@ local defaults = {
 }
 
 if DF.Wrath and not DF.Cata then
-    defaults.profile.first.changeSpellBook = false
-    defaults.profile.first.changeSpellBookProfessions = false
+    -- defaults.profile.first.changeSpellBook = false
+    -- defaults.profile.first.changeSpellBookProfessions = false
     defaults.profile.first.changeTradeskill = false
     defaults.profile.first.changeTalents = false
 end

@@ -8,17 +8,17 @@ Mixin(Module, DragonflightUIModulesMixin)
 local defaults = {
     profile = {
         modules = {
-            ['Actionbar'] = true,
+            ['Actionbar'] = false,
             ['Bossframe'] = false,
             ['Buffs'] = true,
             ['Castbar'] = true,
             ['Chat'] = false,
             ['Darkmode'] = false,
             ['Minimap'] = true,
-            ['Tooltip'] = true,
+            ['Tooltip'] = false,
             ['UI'] = true,
             ['Unitframe'] = true,
-            ['Utility'] = false
+            ['Utility'] = true
         },
         bestnumber = 42
     }
